@@ -15,7 +15,7 @@ body{
 
 @font-face {
     font-family: 仓耳今楷05-W03;
-    src: url(/仓耳今楷05-W03.ttf);
+    src: url(./仓耳今楷05-W03.ttf);
 }
 
 @media screen and (max-width: 1200px) {
