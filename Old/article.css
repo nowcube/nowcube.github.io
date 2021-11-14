@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* background-color: rgba(255, 0, 0, 0.1); */
+    /* border: black 1px solid; */
+}
+
+@font-face {
+    font-family: 仓耳今楷05-W03;
+    src: url(/仓耳今楷05-W03.ttf);
+}
+
+body{
+    background-color: #fff;
+    font-family: 仓耳今楷05-W03;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-area{
+    width: 55%;
+    display: flex;
+}
+
+
+.nav-area a{
+    color: #5C89A4;
+    text-decoration: none;
+    justify-content: center;
+    padding: 20px 15px 20px 0;
+    /* font-family: 'Sacramento', cursive; */
+    font-size: 20px;
+}
+
+.nav-area a:hover{
+    color: #333333;
+}
+
+.content-area{
+    margin: 20px 0 20px 0;
+    padding: 40px 0 40px 0;
+    width: 55%;
+}
+
+
+.title{
+    margin:0 0 10px 0;
+    font-size: 26px;
+    text-align: center;
+    color: #4B5465;
+}
+
+.category{
+    margin: 20px 0 10px 0;
+    text-align: center;
+    font-size: 18px;
+    color: #5C89A4;
+}
+
+.char-counter{
+    display: flex;
+    justify-content: flex-end;    
+    font-size: 13px;
+    margin: 20px 0 40px 0;
+    color: #5C89A4;
+}
+
+p{
+    margin: 20px 0;
+    color: #353F48;
+}
+
+h4{
+    font-size: 20px;
+    margin: 40px 0px 26.6px 0;
+    color: #4B5465;
+}
+
+a{
+    text-decoration: none;
+    color: #5C89A4;
+}
+
+a:hover{
+    color: #333333;
+}

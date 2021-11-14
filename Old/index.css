@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* background-color: rgba(255, 0, 0, 0.1); */
+    /* border: black 1px solid; */
+}
+
+@font-face {
+    font-family: 仓耳今楷05-W03;
+    src: url(/仓耳今楷05-W03.ttf);
+}
+
+html{
+    background: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,1)), url(./Couleur_bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+body{
+    font-family: 仓耳今楷05-W03;
+    /* background-image: ; */
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-area{
+    width: 60%;
+    display: flex;
+}
+
+
+.nav-area a{
+    color: #5C89A4;
+    text-decoration: none;
+    justify-content: center;
+    padding: 20px 15px 20px 0;
+    /* font-family: 'Sacramento', cursive; */
+    font-size: 20px;
+}
+
+.nav-area a:hover{
+    color: #333333;
+}
+
+.content-area{
+    margin: 20px 0 20px 0;
+    padding: 40px 0 40px 0;
+    width: 60%;
+}
+
+
+.title p{
+    margin:0 0 10px 0;
+    font-size: 26px;
+    text-align: center;
+}
+
+h4{
+    font-size: 20px;
+    margin: 40px 0px 26.6px 0;
+}
+
+.slogan p{
+    margin:0 0 100px 0;
+    font-size: 26px;
+    text-align: center;
+    color:#4B5465;
+}
+
+.char-total-counter{
+    display: flex;
+    justify-content: flex-end;   
+    font-size: 16px;
+    margin: 0;
+    color: #5C89A4;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+hr{
+    border: 1px solid #5c88a442;
+}
+
+.post-line{
+    padding: 20px 0;
+}
+
+.post-title{
+    font-size: 22px;
+    color: #353F48;
+}
+
+.post-summary{
+    margin: 30px 0 20px 0;
+    font-size: 20px;
+    color: #4B5465;
+}
+
+.post-info{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #5C89A4;
+}
+
+.right-info-area{
+    display: flex;
+}
+
+.right-info-area .char-counter{
+    margin: 0 10px 0 0;
+}
+
+a{
+    text-decoration: none;
+    color: #5C89A4;
+}
+
+a:hover{
+    color: #333333;
+}
