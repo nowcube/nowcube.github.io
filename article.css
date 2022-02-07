@@ -184,3 +184,10 @@ ol,ul{
     margin: 20px 0 40px 0;
     color: #5C89A4;
 }
+
+.tag{
+    text-align: center;
+    font-size: 16px;
+    color: #5C89A4;
+    margin: 20px 0 10px;
+}

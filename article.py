@@ -23,7 +23,7 @@ for mdDir in mdDirs:
     content = strHtmlPart1+content+strHtmlPart2#让pandoc生成的网页有完整的格式
     # print(content)
     post1 = content.find( "<body>" )
-    str1 = "<div class=\"nav-area\"><a href=\"../index.html\">MoedayNano</a><a href=\"../tags.html\">Tags</a><a href=\"../关于.html\">About</a></div>"
+    str1 = "<div class=\"nav-area\"><a href=\"https://nowcube.github.io/index.html\">MoedayNano</a><a href=\"https://nowcube.github.io/tags.html\">Tags</a><a href=\"https://nowcube.github.io/about.html\">About</a></div>"
     post2 = content.find( "</title>" )
     str2 = "<link rel=\"stylesheet\" href=\"article.css\">"
     postTitleStrat=content.find("<title>")
@@ -48,8 +48,9 @@ for mdDir in mdDirs:
     # print(contentLable)
 
     post3 = content.find(str1)
-    str3 = "<p class=\"title\">{}</p><p class=\"char-counter\">字数:{}".format(title,count)
-    if post3 != -1:  #插入文章title，字数统计，日期
+    dirName=noMd.replace('.\\','').replace('\{}'.format(title),'')
+    str3 = "<p class=\"title\">{}</p><p class=\"tag\"><a href=\"../tags.html#{}\">「 {} 」</a></p><p class=\"char-counter\">字数:{}".format(title, dirName, dirName,count)
+    if post3 != -1:  #插入文章title，Tag，字数统计
         content = content[:post3+len(str1)] + str3 + content[post3+len(str1):]
         file=open("{}.html".format(noMd),"w", encoding="utf-8" )
         file.write( content )

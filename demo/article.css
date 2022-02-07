@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-size: 20px; */
+    /* background-color: rgba(255,255,0,.1); */
+}
+
+body{
+    width: 55%;
+    margin: 0 auto;
+    background-color: #fff;
+    color: #333333;
+    font-family: 仓耳今楷05-W03;
+}
+
+@font-face {
+    font-family: 仓耳今楷05-W03;
+    src: url(./仓耳今楷05-W03.ttf);
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        width: 65%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    body {
+        width: 75%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        width: 85%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
+
+code {
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    padding: 15px 8px;
+    border: 1px solid #5c88a442;
+    border-radius: 3px;
+    overflow: auto;
+    font-size: 16px;
+}
+
+kbd {
+    margin: 0px 0.1em;
+    padding: 0.1em 0.6em;
+    font-size: 0.8em;
+    color: rgb(36, 39, 41);
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(173, 179, 185);
+    border-radius: 3px;
+    box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+    white-space: nowrap;
+    vertical-align: middle;
+    /*kbd的样式真sb的多*/
+}
+
+a {
+    text-decoration: none;
+    color: #5C89A4;
+}
+
+a:hover {
+    color: #333333;
+}
+
+hr {
+    border: 1px solid #5c88a442;
+    margin: 20px 0;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+th,
+td {
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+thead {
+    background-color: #dfe2e5;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #dfe2e5;
+}
+
+/* li {
+    list-style-position: inside;
+} */
+
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+    margin: 20px 0;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+p {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+ul {
+    margin: 20px 0;
+}
+
+li {
+    font-size: 18px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 40px 0 20px 0;
+}
+
+h4{
+    font-size: 20px;
+}
+
+.nav-area{
+    display: flex;
+}
+.nav-area a{
+    color: #5C89A4;
+    text-decoration: none;
+    justify-content: center;
+    padding: 20px 15px 20px 0;
+    font-size: 20px;
+}
+ol,ul{
+    padding: 0 0 0 1rem;
+}
+
+.title{
+    font-size: 26px;
+    text-align: center;
+    margin: 50px 0 20px 0;
+}
+
+.char-counter{
+    text-align: end;
+    font-size: 13px;
+    margin: 20px 0 40px 0;
+    color: #5C89A4;
+}
+
+.tag{
+    text-align: center;
+    font-size: 16px;
+    color: #5C89A4;
+    margin: 20px 0 10px;
+}
