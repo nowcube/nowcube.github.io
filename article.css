@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* font-size: 20px; */
     /* background-color: rgba(255,255,0,.1); */
 }
 
@@ -59,6 +60,7 @@ code {
     border: 1px solid #5c88a442;
     border-radius: 3px;
     overflow: auto;
+    font-size: 16px;
 }
 
 kbd {
@@ -117,9 +119,9 @@ tbody tr:nth-child(even) {
     background-color: #dfe2e5;
 }
 
-li {
+/* li {
     list-style-position: inside;
-}
+} */
 
 blockquote {
     border-left: 4px solid #dfe2e5;
@@ -137,16 +139,24 @@ img {
 
 p {
     margin: 20px 0;
+    font-size: 20px;
 }
 
 ul {
     margin: 20px 0;
 }
 
+li {
+    font-size: 18px;
+}
+
 h1,h2,h3,h4,h5,h6{
     margin: 40px 0 20px 0;
 }
 
+h4{
+    font-size: 20px;
+}
 
 .nav-area{
     display: flex;
