@@ -1,18 +1,15 @@
-<!doctype html>
-<html>
-<head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>博客搭建记录</title><link rel="stylesheet" href="article.css">
-</head>
-<body><div class="nav-area"><a href="../index.html">MoedayNano</a><a href="../tags.html">Tags</a><a href="../about.html">About</a></div><p class="title">博客搭建记录</p><p class="char-counter">字数:768  日期:2021-11-15</p><h4 id='初次搭建'>初次搭建</h4>
-<p>在看到<a href='https://manateelazycat.github.io/index.html'>ManateeLazyCat</a>的博客感到美观与优雅，看他的「<a href='https://manateelazycat.github.io/life/2016/03/03/my-life-before-28-years.html'>我人生的前28年</a>」内心五味陈杂，便流下了泪水，看到ArchLinux中文社区的小伙伴都拥有自己的博客，于是便萌生了搭建博客的想法，看到他博客结构简单，于是我想不用现成的工具去搭建博客，以前有用过Hexo、WordPress等框架，但是我更想“简单”，于是手写网页，花了一两天吧，其实是很久没写关于前端的东西了，所以便有些生疏，目前还有一些功能还没实现，一步步来吧，我是目前打算把她搭建到Github Pages的，我想在她上面分享一些人生感悟，还有我想记录的东西，总之先这样吧！</p>
+<!doctype html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><title>博客搭建记录</title><link rel="stylesheet" href="article.css"></head><body><div class="nav-area"><a href="../index.html">MoedayNano</a><a href="../tags.html">Tags</a><a href="../关于.html">About</a></div><p class="title">博客搭建记录</p><p class="char-counter">字数:1117<h4 id="初次搭建">初次搭建</h4>
+<p>在看到<a
+href="https://manateelazycat.github.io/index.html">ManateeLazyCat</a>的博客感到美观与优雅，看他的「<a
+href="https://manateelazycat.github.io/life/2016/03/03/my-life-before-28-years.html">我人生的前28年</a>」内心五味陈杂，便流下了泪水，看到ArchLinux中文社区的小伙伴都拥有自己的博客，于是便萌生了搭建博客的想法，看到他博客结构简单，于是我想不用现成的工具去搭建博客，以前有用过Hexo、WordPress等框架，但是我更想“简单”，于是手写网页，花了一两天吧，其实是很久没写关于前端的东西了，所以便有些生疏，目前还有一些功能还没实现，一步步来吧，我是目前打算把她搭建到Github
+Pages的，我想在她上面分享一些人生感悟，还有我想记录的东西，总之先这样吧！</p>
 <p>目前用Python实现了插入link:css、实现了html文件重命名问题、日期问题，字数统计问题就交给明天的我了。</p>
 <p>字数统计已经实现了，没想到比想象中的难一些，去掉换行符什么的，想在这里记录一下代码</p>
-<pre><code class='language-python' lang='python'>strContent=&quot;&quot;.join(content.replace(&#39;\n&#39;,&#39;&#39;))#.replace实现换行符替换为&#39;&#39;，注：本身content也为str类型
-contentLable = re.findall(&quot;&lt;.*?&gt;&quot;,content)#获取所有的&lt;*&gt;
-strContentLable=&quot;&quot;.join(contentLable)#成为一个str
-count=len(strContent)-len(strContentLable)#去掉换行符的内容 - 所有的&lt;*&gt; = 实际的字数
-</code></pre>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>strContent<span class="op">=</span><span class="st">&quot;&quot;</span>.join(content.replace(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,<span class="st">&#39;&#39;</span>))<span class="co">#.replace实现换行符替换为&#39;&#39;，注：本身content也为str类型</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>contentLable <span class="op">=</span> re.findall(<span class="st">&quot;&lt;.*?&gt;&quot;</span>,content)<span class="co">#获取所有的&lt;*&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>strContentLable<span class="op">=</span><span class="st">&quot;&quot;</span>.join(contentLable)<span class="co">#成为一个str</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>count<span class="op">=</span><span class="bu">len</span>(strContent)<span class="op">-</span><span class="bu">len</span>(strContentLable)<span class="co">#去掉换行符的内容 - 所有的&lt;*&gt; = 实际的字数</span></span></code></pre></div>
 <p>太棒了，我的博客程序离实现又近了一步，目前还没写“md-&gt;html”，明天实现一下「Tag」吧！</p>
-</body>
-</html>
+<p>2022年2月7日，搁置好久的博客突然想写了一些，原本md-&gt;html的工作由Typora完成，后来Typora收费了，今天实现了用pandoc处理md-&gt;html的方法，撰写日期目前不打算实现，因为原本的撰写日期的代码是运行article.py文件的时间，现在程序被我写成，会遍历所有文件夹下的md文档并生成html，所以撰写时间就成了生成时间。</p>
+</body></html>
