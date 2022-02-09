@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 55%;
+    margin: 0 auto;
+    background-color: #fff;
+    /* color: #333333; */
+    font-family: jinkaiFont;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: #5C89A4;
+}
+
+a:hover {
+    color: #333333;
+}
+
+hr {
+    border: 0;
+    border-top: 2px dashed #d1d1d1;
+    margin: 20px 0;
+}
+
+ul {
+    margin: 20px 0;
+    list-style: none;
+}
+
+li {
+    font-size: 20px;
+}
+
+.nav-area{
+    display: flex;
+}
+.nav-area a{
+    text-decoration: none;
+    justify-content: center;
+    padding: 20px 15px 20px 0;
+    font-size: 20px;
+}
+
+.char-total-counter{
+    text-align: end;
+    font-size: 17px;
+    color: #666666;
+}
+
+.char-counter{
+    text-align: end;
+    font-size: 13px;
+    margin: 20px 0 40px 0;
+    color: #5C89A4;
+}
+
+.tag{
+    text-align: center;
+    font-size: 16px;
+    color: #5C89A4;
+    margin: 20px 0 10px;
+}
+
+.slogan{
+    font-size: 26px;
+    margin: 50px 0 100px 0;
+    text-align: center;
+    color: #666666;
+}
+
+.post-line{
+    margin: 25px 0 25px 0;
+}
+
+.post-title{
+    font-size: 23px;
+}
+.post-summary{
+    margin: 20px 0 20px 0;
+    color: #666666;
+}
+.post-info{
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    color: #666666;
+}
+
+.category-left{
+    background: #DDD;
+    margin-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+.category-left a{
+    color: #666666;
+}
+
+
+
+@font-face {
+    font-family: jinkaiFont;
+    src: url("./jinkai.ttf") format("TrueType");
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        width: 65%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    body {
+        width: 75%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        width: 85%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .nav-area a{
+        font-size: 18px;
+    }
+
+    .slogan{
+        font-size: 20px;
+        margin:60px 0 80px 0;
+    }
+
+    .char-total-counter{
+        font-size: 14px;
+    }
+    .post-title{
+        font-size: 20px;
+    }
+
+    .post-summary{
+        font-size: 16px;
+    }
+
+    .post-info{
+        font-size: 14px;
+    }
+}
