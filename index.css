@@ -9,7 +9,7 @@ body{
     margin: 0 auto;
     background-color: #fff;
     /* color: #333333; */
-    font-family: 仓耳今楷05-W03;
+    font-family: jinkaiFont;
 }
 
 
@@ -46,6 +46,12 @@ li {
     justify-content: center;
     padding: 20px 15px 20px 0;
     font-size: 20px;
+}
+
+.char-total-counter{
+    text-align: end;
+    font-size: 17px;
+    color: #666666;
 }
 
 .char-counter{
@@ -102,8 +108,8 @@ li {
 
 
 @font-face {
-    font-family: 仓耳今楷05-W03;
-    src: url(./仓耳今楷05-W03.ttf);
+    font-family: jinkaiFont;
+    src: url("./jinkai.ttf") format("TrueType");
 }
 
 @media screen and (max-width: 1200px) {
@@ -146,6 +152,9 @@ li {
         margin:60px 0 80px 0;
     }
 
+    .char-total-counter{
+        font-size: 14px;
+    }
     .post-title{
         font-size: 20px;
     }

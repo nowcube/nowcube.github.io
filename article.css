@@ -9,7 +9,7 @@ body{
     margin: 0 auto;
     background-color: #fff;
     color: #333333;
-    font-family: 仓耳今楷05-W03;
+    font-family: jinkaiFont;
 }
 
 code {
@@ -59,9 +59,9 @@ figure {
     text-align: center;
 }
 
-h1,h2,h3,h4,h5,h6{
+/* h1,h2,h3,h4,h5,h6{
     font-weight: lighter;
-}
+} */
 
 th,
 td {
@@ -132,9 +132,9 @@ ol,ul{
 
 .char-counter{
     text-align: end;
-    font-size: 13px;
+    font-size: 15px;
     margin: 20px 0 40px 0;
-    color: #5C89A4;
+    color: #666666;
 }
 
 .tag{
@@ -145,8 +145,8 @@ ol,ul{
 }
 
 @font-face {
-    font-family: 仓耳今楷05-W03;
-    src: url(./仓耳今楷05-W03.ttf);
+    font-family: jinkaiFont;
+    src: url("./jinkai.ttf") format("TrueType");
 }
 
 @media screen and (max-width: 1200px) {

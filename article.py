@@ -1,57 +1,127 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
+from importlib.resources import contents
 import time #引入时间模块
 import re #引入正则表达式模块
 import os #引入OS模块
-import all_md #引入自定义查找.md结尾的文件
-mdDirs=all_md.main()
-for mdDir in mdDirs:
-    print(mdDir)
-    noMd=mdDir.replace('.md','')
-    file_path = "{}".format(mdDir)
-    basename = os.path.basename(file_path)
-    file_name = os.path.splitext(basename)[0]
-    # print(noMd)
-    os.system("pandoc {} -o {}.html".format(mdDir,noMd))
-    file = open( "{}.html".format(noMd), "r", encoding="utf-8" )
-    # print("{}.html".format(noMd))
+
+#转化时间戳
+def TimeStampToTime(timestamp):
+    timeStruct=time.localtime(timestamp)
+    return time.strftime('%Y-%m-%d',timeStruct)
+
+#获取文件修改时间
+def get_FileModifyTime(filePath):
+    # filePath = unicode(filePath,'utf8')
+    t=os.path.getmtime(filePath)
+    # return TimeStampToTime(t)
+    return TimeStampToTime(t)
+    # print(TimeStampToTime(t)) 
+
+#获取文件修改时间戳
+def get_FileModifyTimeStamp(filePath):
+    # return os.path.getmtime(filePath)
+    # print(os.path.getmtime(filePath))
+    yield os.path.getmtime(filePath)
+
+#获取文件Tag
+def get_FileTag(filePath):
+    tag=os.path.basename(os.path.dirname(filePath))
+    return tag
+    # print(tag)
+
+#获取文章标题
+def get_FileTitle(filePath):
+    fileName=os.path.basename(filePath).split('.')[0]
+    return fileName
+    # print(fileName)
+
+#获取文件字数
+def get_FileNumbers(filePath):
+    os.system("pandoc {} -o {}Temp.html".format(filePath,filePath.replace('.md','')))
+    file = open( "{}".format(filePath.replace('.md','Temp.html')), "r", encoding="utf-8" )
     content = file.read()
-    # print(content)
     file.close()
-    strHtmlPart1 = "<!doctype html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><title>{}</title></head><body>".format(file_name)
-    strHtmlPart2 = '</body></html>'
-    content = strHtmlPart1+content+strHtmlPart2#让pandoc生成的网页有完整的格式
+    extract=re.compile(r'<[^>]+>',re.S).sub('',content)
+    # print(len(extract.replace('\n','')))
+    os.remove("{}Temp.html".format(filePath.replace('.md','')))
+    return len(extract.replace('\n',''))
+
+#文件相对路径获取
+def findAllFile(base):
+    for root, ds, fs in os.walk(base):
+        for f in fs:
+            if f.endswith('.md'):
+                fullname = os.path.join(root, f)
+                yield fullname
+                # print(fullname)
+
+#获取HTML文件的路径
+def get_FileLink(filePath):
+    return filePath.replace('.md','.html')
+
+#按照文件修改时间从大到小输出
+def output_FileByTime(filePath):
+    dictTime={}
+    for root, dirs, files in os.walk(filePath):
+        for f in files:
+            if f.endswith('.md'):
+                fileDir=os.path.join(root, f)
+                dictTime['{}'.format(fileDir)]=os.path.getmtime(fileDir)
+    listTime = sorted(dictTime.items(), key=lambda kv: kv[1], reverse=True)
+    for i in range(len(listTime)):
+        yield (listTime[i][0])
+        # print (listTime[i][0])
+
+# 从Markdown生成基本HTML文档,并返回HTML文档路径
+def output_BasicHtml(filePath):
+    for i in output_FileByTime(filePath):
+        fileLink=get_FileLink(i)
+        # print(i)
+        os.system("pandoc {} -o {}".format(i,fileLink))
+        yield fileLink
+
+#开始进行文件写入
+filePath="."
+for i in output_BasicHtml(filePath):
+    fileTitle=get_FileTitle(i)
+    fileTag=get_FileTag(i)
+    fileNumber=get_FileNumbers(i)
+    fileModifyTime=get_FileModifyTime(i)
+    # print(fileTitle,fileTag,fileNumber,fileModifyTime)
+    file = open( "{}".format(i), "r", encoding="utf-8" )
+    content=file.read()
+    articlePart='''
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>{}</title>
+    <link rel="stylesheet" href="../article.css">
+</head>
+
+<body>
+    <div class="nav-area"><a href="../index.html">MoedayNano</a><a href="../tags.html">Tags</a><a
+            href="../about.html">About</a></div>
+    <p class="title">{}</p>
+    <p class="tag"><a href="../tags.html#{}">「 {} 」</a></p>
+    <p class="char-counter">字数{} 日期{}</p>
+
+    {}
+
+</body>
+
+</html>
+'''
+    content=articlePart.format(fileTitle,fileTitle,fileTag,fileTag,fileNumber,fileModifyTime,content)
     # print(content)
-    post1 = content.find( "<body>" )
-    str1 = "<div class=\"nav-area\"><a href=\"../index.html\">MoedayNano</a><a href=\"../tags.html\">Tags</a><a href=\"../about.html\">About</a></div>"
-    post2 = content.find( "</title>" )
-    str2 = "<link rel=\"stylesheet\" href=\"article.css\">"
-    postTitleStrat=content.find("<title>")
-    postTitleEnd=content.find("</title>")
-    title=content[postTitleStrat+len("<title>"):postTitleEnd]#从html文档中获取<title></title>中的内容
-    if post1 != -1: #插入nav元素
-        content = content[:post1+len("<body>")] + str1 + content[post1+len("<body>"):]
-        file=open("{}.html".format(noMd),"w", encoding="utf-8" )
-        file.write( content )
-        file.close()
-    if post2 != -1: #插入link:css标签
-        content = content[:post2+len("</title>")] + str2 + content[post2+len("</title>"):]
-        file=open("{}.html".format(noMd),"w", encoding="utf-8" )
-        file.write( content )
-        file.close()
+    file = open( "{}".format(i), "w", encoding="utf-8" )
+    file.write(content)
+    file.close()
 
-    # print(len(content))
-    strContent="".join(content.replace('\n',''))#.replace实现换行符替换为''，注：本身content也为str类型
-    contentLable = re.findall("<.*?>",content)#获取所有的<*>
-    strContentLable="".join(contentLable)#成为一个str
-    count=len(strContent)-len(strContentLable)#去掉换行符的内容 - 所有的<*> = 实际的字数
-    # print(contentLable)
 
-    post3 = content.find(str1)
-    dirName=noMd.replace('.\\','').replace('\{}'.format(title),'')
-    str3 = "<p class=\"title\">{}</p><p class=\"tag\"><a href=\"../tags.html#{}\">「 {} 」</a></p><p class=\"char-counter\">字数:{}</p>".format(title, dirName, dirName,count)
-    if post3 != -1:  #插入文章title，Tag，字数统计
-        content = content[:post3+len(str1)] + str3 + content[post3+len(str1):]
-        file=open("{}.html".format(noMd),"w", encoding="utf-8" )
-        file.write( content )
-        file.close()
+
+
+

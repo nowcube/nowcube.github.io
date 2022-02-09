@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 from cgitb import html
 from email.mime import base
+from itertools import count
 import os
 from sqlite3 import connect
 import time
@@ -101,19 +102,73 @@ def output_FileByTime(filePath):
     for i in range(len(listTime)):
         yield (listTime[i][0])
 
+#统计所有文章个数
+def count_AllFileNums(filePath):
+    fileNums=0
+    for i in output_FileByTime(filePath):
+        fileNums=fileNums+1
+    # print(fileNums)
+    return(fileNums)
 
+#统计所有文章文字数
+def count_AllFileChars(filePath):
+    fileChars=0
+    for i in output_FileByTime(filePath):
+        fileChars=fileChars+get_FileNumbers(i)
+    # print(fileChars)
+    return(fileChars)
+
+# filePath="."
+# postLineS=""
+# for i in output_FileByTime(filePath):
+#     postLineS=postLineS+createPostLine(i)#postLineS为所有渲染的post加在一起
+# file = open( "index.html", "r", encoding="utf-8" )
+# content = file.read()
+# post = content.find("<ul>")
+# postEnd = content.find("</ul>")
+# if post != -1:
+#     content=content[:post+len("<ul>")]+content[postEnd:]#删除原本的<ul></ul>里的内容
+#     content = content[:post+len("<ul>")]+postLineS+content[post+len("<ul>"):]#加入postLineS
+#     file = open("index.html",'w', encoding="utf-8" )
+#     file.write(content)
+# file.close()
 
 filePath="."
 postLineS=""
 for i in output_FileByTime(filePath):
     postLineS=postLineS+createPostLine(i)#postLineS为所有渲染的post加在一起
+allFileNums=count_AllFileNums(filePath)
+allFileChars=count_AllFileChars(filePath)
 file = open( "index.html", "r", encoding="utf-8" )
 content = file.read()
-post = content.find("<ul>")
-postEnd = content.find("</ul>")
-if post != -1:
-    content=content[:post+len("<ul>")]+content[postEnd:]#删除原本的<ul></ul>里的内容
-    content = content[:post+len("<ul>")]+postLineS+content[post+len("<ul>"):]#加入postLineS
-    file = open("index.html",'w', encoding="utf-8" )
-    file.write(content)
+part='''
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>MoedayNano</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="nav-area"><a href="./index.html">MoedayNano</a><a href="./tags.html">Tags</a><a
+            href="./about.html">About</a>
+    </div>
+    <div class="slogan">欢迎来到我的思想世界</div>
+    <div class="char-total-counter">{}篇文章 {}字</div>
+    <ul>
+        
+        {}
+
+    </ul>
+</body>
+
+</html>
+'''
+content=part.format(allFileNums,allFileChars,postLineS)
+
+file = open("index.html",'w', encoding="utf-8" )
+file.write(content)
 file.close()
