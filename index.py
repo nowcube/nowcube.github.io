@@ -1,14 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
-from cgitb import html
-from email.mime import base
-from itertools import count
 import os
-from sqlite3 import connect
 import time
 import re #引入正则表达式模块
-import ntpath
-from webbrowser import get
 
 
 #转化时间戳
