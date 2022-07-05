@@ -150,7 +150,7 @@ part='''
     <div class="nav-area"><a href="./index.html">MoedayNano</a><a href="./tags.html">Tags</a><a
             href="./about.html">About</a>
     </div>
-    <div class="slogan">欢迎来到我的思想世界</div>
+    <div class="slogan" style="color:#5C89A4;">🍨·💻·🥪·🏊·🥤·🐱·🍉</div>
     <div class="char-total-counter">{}篇文章 {}字</div>
     <ul>
         
