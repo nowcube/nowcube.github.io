@@ -103,8 +103,9 @@ for i in output_BasicHtml(filePath):
 </head>
 
 <body>
-    <div class="nav-area"><a href="../index.html">MoedayNano</a><a href="../tags.html">Tags</a><a
-            href="../about.html">About</a></div>
+    <div class="nav-area"><a href="./index.html">🏠MoedayNano</a><a href="./tags.html">📑Tags</a><a
+            href="./about.html">🐱About</a>
+    </div>
     <p class="title">{}</p>
     <p class="tag"><a href="../tags.html#{}">「 {} 」</a></p>
     <p class="char-counter">字数{} 日期{}</p>

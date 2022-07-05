@@ -48,7 +48,7 @@ a:hover {
 
 hr {
     border: 0;
-    border-top: 2px dashed #d1d1d1;
+    border-top: 1px dashed #d1d1d1;
     margin: 20px 0;
 }
 
@@ -104,6 +104,7 @@ img {
 p {
     margin: 20px 0;
     font-size: 20px;
+    line-height: 150%;
 }
 
 ul {

@@ -25,7 +25,7 @@ a:hover {
 
 hr {
     border: 0;
-    border-top: 2px dashed #d1d1d1;
+    border-top: 1px dashed #d1d1d1;
     margin: 20px 0;
 }
 
@@ -85,6 +85,7 @@ li {
 .post-summary{
     margin: 20px 0 20px 0;
     color: #333333;
+    line-height: 150%;
 }
 .post-info{
     display: flex;
@@ -104,8 +105,6 @@ li {
 .category-left a{
     color: #666666;
 }
-
-
 
 @font-face {
     font-family: jinkaiFont;
