@@ -91,8 +91,8 @@ part='''
 </head>
 
 <body>
-    <div class="nav-area"><a href="./index.html">MoedayNano</a><a href="./tags.html">Tags</a><a
-            href="./about.html">About</a>
+    <div class="nav-area"><a href="./index.html">🏠MoedayNano</a><a href="./tags.html">📑Tags</a><a
+            href="./about.html">🐱About</a>
     </div>
 
     {}
