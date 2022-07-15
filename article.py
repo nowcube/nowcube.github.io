@@ -104,7 +104,7 @@ for i in output_BasicHtml(filePath):
 
 <body>
     <div class="nav-area"><a href="../index.html">🏠MoedayNano</a><a href="../tags.html">📑Tags</a><a
-            href="../about.html">🐱About</a>
+            href="../about.html">🐱About</a><a href="../MoEditor.html">✍🏻️MoEditor</a>
     </div>
     <p class="title">{}</p>
     <p class="tag"><a href="../tags.html#{}">「 {} 」</a></p>
