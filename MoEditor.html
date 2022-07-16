@@ -5,9 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoEditor</title>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
+    <title>MoEditor - easy to markdown</title>
     <style>
         *:not(.rightbox *) {
             margin: 0;
@@ -22,22 +20,23 @@
             border: none;
         }
 
-        .navbar a {
-            text-decoration: none;
-            color: #000;
-        }
-
         .container {
             display: flex;
             height: calc(100vh - 36px);
-            border-bottom: 1px solid #adb5bd;
+            border-bottom: 1px solid #C7C7C7;
         }
 
         .navbar {
             display: flex;
             height: 36px;
-            border-bottom: 1px solid #adb5bd;
-            /* align-items: center; */
+            border-bottom: 1px solid #C7C7C7;
+            background-color: #f5f5f5;
+            color: #000;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
         }
 
         .navbar-item {
@@ -45,39 +44,26 @@
             align-items: center;
             height: 100%;
             padding: 0 1rem 0 1rem;
-            cursor:pointer;
+            cursor: pointer;
         }
 
         .navbar-item:hover {
-            background-color: #e7e7e7;
+            background-color: #FAFAFA;
+            color: black;
         }
-
-        /* .footbar{
-            display: flex;
-            height: 30px;
-            border-bottom: 1px solid #adb5bd;
-            font-size: 0.5rem;
-            justify-content: center;
-            align-items: center;
-        } */
 
         .leftbox,
         .rightbox {
+            background-color: #FAFAFA;
             width: 50vw;
-            /* word-wrap: break-word; */
             overflow: scroll;
-            padding: 1rem 2rem;
+            padding: 0 10px 0 10px;
         }
 
         .leftbox {
-            font-size: 1.2rem;
-            color: #3F3844;
-            background-color: #FAFAFA;
-            border-right: 1px solid #adb5bd;
+            /* background-color: #FAFAFA; */
+            border-right: 1px solid #C7C7C7;
         }
-
-        /* .leftbox:focus{
-        } */
 
         .leftbox::selection {
             background-color: #B3E5FC;
@@ -87,15 +73,15 @@
 
 <body>
     <div class="navbar">
-        <a class="navbar-item" href="#" id="fileSelect">File</a>
+        <a class="navbar-item" href="#" id="fileSelect">📂 Open</a>
         <input style="display: none;" type="file" id="fileElem" onchange="fileToMarkdown.call(this)"
             accept="texd dt/md,text/mdown,text/markdown,text/txt" />
-        <div onclick="download(fileName,document.getElementById('source').value)" class="navbar-item">Save</div>
-        <a class="navbar-item" href="#" onclick="about()">About</a>
+        <div onclick="download(fileName,document.getElementById('source').value)" class="navbar-item">💾 Save</div>
+        <a class="navbar-item" href="#" onclick="about()">ℹ️ About</a>
     </div>
     <div class="container">
         <textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="on"
-            class="leftbox code" id="source" oninput="trans()"></textarea>
+            class="leftbox" id="source" oninput="trans()">## MoEditor</textarea>
         <div class="rightbox markdown-body" id="content"></div>
     </div>
 
@@ -130,7 +116,7 @@
         });
 
         //Markdown读取器
-        var fileName="Unknow.md";
+        var fileName = "Unknow.md";
         function fileToMarkdown() {
             console.log(this.files);
             var reader = new FileReader();
@@ -165,8 +151,8 @@
         }
 
         //About 提示框
-        function about(){
-            alert("made by moeday\n\npowered by\n    marked@4.0.18\n    dompurify@2.3.9\n    github-markdown-css@5.1.0\n\nEnjoy!")
+        function about() {
+            alert("made by moeday\n\npowered by\n    marked@4.0.18\n    dompurify@2.3.9\n\nEnjoy!")
         }
     </script>
 </body>
