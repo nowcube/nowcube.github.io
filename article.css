@@ -4,12 +4,18 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: #1976d2;
+}
+
 body{
     width: 55%;
     margin: 0 auto;
     background-color: #fff;
     color: #333333;
-    font-family: jinkaiFont;
+    font-family: system-ui;
+
+    /* font-family: jinkaiFont; */
 }
 
 code {
@@ -39,7 +45,7 @@ kbd {
 
 a {
     text-decoration: none;
-    color: #5C89A4;
+    color: var(--main-color);
 }
 
 a:hover {
@@ -115,7 +121,7 @@ ul {
     display: flex;
 }
 .nav-area a{
-    color: #5C89A4;
+    color: var(--main-color);
     text-decoration: none;
     justify-content: center;
     padding: 20px 15px 20px 0;
@@ -141,14 +147,14 @@ ol,ul{
 .tag{
     text-align: center;
     font-size: 18px;
-    color: #5C89A4;
+    color: var(--main-color);
     margin: 20px 0 10px;
 }
 
-@font-face {
+/* @font-face {
     font-family: jinkaiFont;
     src: url("./jinkai.ttf") format("TrueType");
-}
+} */
 
 @media screen and (max-width: 1200px) {
     body {

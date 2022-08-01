@@ -4,19 +4,36 @@
     box-sizing: border-box;
 }
 
-body{
-    width: 55%;
-    margin: 0 auto;
-    background-color: #fff;
-    /* color: #333333; */
-    font-family: jinkaiFont;
+:root {
+    --main-color: #1976d2;
 }
 
+html{
+    background-image: url(./bg2.png);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+    background-origin: border-box;
+    background-clip: border-box;
+    background-attachment: fixed;
+}
 
+body{
+    width: 60%;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    font-family: system-ui;
+
+    /* color: #333333; */
+    /* font-family: jinkaiFont; */
+}
 
 a {
     text-decoration: none;
-    color: #5C89A4;
+    color: var(--main-color);
 }
 
 a:hover {
@@ -30,7 +47,7 @@ hr {
 }
 
 ul {
-    margin: 20px 0;
+    /* margin: 20px 0; */
     list-style: none;
 }
 
@@ -58,25 +75,25 @@ li {
     text-align: end;
     font-size: 13px;
     margin: 20px 0 40px 0;
-    color: #5C89A4;
+    color: var(--main-color);
 }
 
 .tag{
     text-align: center;
     font-size: 16px;
-    color: #5C89A4;
+    color: var(--main-color);
     margin: 20px 0 10px;
 }
 
 .slogan{
-    font-size: 26px;
-    margin: 50px 0 100px 0;
+    font-size: 24px;
+    margin: 50px 0 50px 0;
     text-align: center;
-    color: #666666;
+    color: var(--main-color);
 }
 
 .post-line{
-    margin: 25px 0 25px 0;
+    padding: 25px 0 25px 0;
 }
 
 .post-title{
@@ -106,10 +123,10 @@ li {
     color: #666666;
 }
 
-@font-face {
+/* @font-face {
     font-family: jinkaiFont;
     src: url("./jinkai.ttf") format("TrueType");
-}
+} */
 
 @media screen and (max-width: 1200px) {
     body {
@@ -148,7 +165,8 @@ li {
 
     .slogan{
         font-size: 20px;
-        margin:60px 0 80px 0;
+        margin:60px 0 60px 0;
+        color: var(--main-color);
     }
 
     .char-total-counter{

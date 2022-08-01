@@ -80,7 +80,7 @@ def createPostLine(filePath):
     fileTag=get_FileTag(filePath)
     fileNumbers=get_FileNumbers(filePath)
     fileModifyTime=get_FileModifyTime(filePath)
-    postLine="<li class=\"post-line\"><a class=\"post-title\" href=\"{}\">{}</a><a href=\"{}\"><div class=\"post-summary\">{}</div></a><div class=\"post-info\"><div class=\"category-left\"><a href=\"./tags.html#{}\">{}</a></div><div class=\"category-right\">字数{} 日期{}</div></div><hr></li>".format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers,fileModifyTime)
+    postLine="<li class=\"post-line\"><a class=\"post-title\" href=\"{}\">{}</a><a href=\"{}\"><div class=\"post-summary\">{}</div></a><div class=\"post-info\"><div class=\"category-left\"><a href=\"./tags.html#{}\">{}</a></div><div class=\"category-right\">字数{} 日期{}</div></div></li>".format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers,fileModifyTime)
     # print(postLine)
     return postLine
 
@@ -147,10 +147,10 @@ part='''
 </head>
 
 <body>
-    <div class="nav-area"><a href="./index.html">🏠MoedayNano</a><a href="./tags.html">📑Tags</a><a
-            href="./about.html">🐱About</a><a href="./MoEditor.html">✍🏻️MoEditor</a>
+    <div class="nav-area"><a href="./index.html">MoedayNano</a><a href="./tags.html">Tags</a><a
+            href="./about.html">About</a><a href="./MoEditor.html">MoEditor</a>
     </div>
-    <div class="slogan" style="color:#5C89A4;">让爱伴随永生</div>
+    <div class="slogan">让爱伴随永生</div>
     <div class="char-total-counter">{}篇文章 {}字</div>
     <ul>
         

@@ -97,11 +97,11 @@
 
 <body>
     <div class="navbar">
-        <a class="navbar-item" href="#" id="fileSelect">📂 Open</a>
+        <a class="navbar-item" href="#" id="fileSelect">Open</a>
         <input style="display: none;" type="file" id="fileElem" onchange="fileToMarkdown.call(this)"
             accept="texd dt/md,text/mdown,text/markdown,text/txt" />
-        <div onclick="download(fileName,document.getElementById('source').value)" class="navbar-item">💾 Save</div>
-        <a class="navbar-item" href="#" onclick="about()">ℹ️ About</a>
+        <div onclick="download(fileName,document.getElementById('source').value)" class="navbar-item">Save</div>
+        <a class="navbar-item" href="#" onclick="about()">About</a>
     </div>
     <div class="container">
         <textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="on"

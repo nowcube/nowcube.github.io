@@ -4,19 +4,25 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: #1976d2;
+}
+
 body{
     width: 55%;
     margin: 0 auto;
     background-color: #fff;
+    font-family: system-ui;
+
     /* color: #333333; */
-    font-family: jinkaiFont;
+    /* font-family: jinkaiFont; */
 }
 
 
 
 a {
     text-decoration: none;
-    color: #5C89A4;
+    color: var(--main-color);
 }
 
 a:hover {
@@ -63,11 +69,11 @@ li {
     font-size: 20px;
 }
 
-
+/* 
 @font-face {
     font-family: jinkaiFont;
     src: url("./jinkai.ttf") format("TrueType");
-}
+} */
 
 @media screen and (max-width: 1200px) {
     body {
