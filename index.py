@@ -150,8 +150,8 @@ part='''
     <div class="nav-area"><a href="./index.html">MoedayNano</a><a href="./tags.html">Tags</a><a
             href="./about.html">About</a><a href="./MoEditor.html">MoEditor</a>
     </div>
-    <div class="slogan">让爱伴随永生</div>
-    <div class="char-total-counter">{}篇文章 {}字</div>
+    <div class="slogan"><span>让爱伴随永生</span></div>
+    <div class="char-total-counter"><span>{}篇文章 {}字</span></div>
     <ul>
         
         {}

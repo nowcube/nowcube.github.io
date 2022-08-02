@@ -5,8 +5,9 @@
 }
 
 :root {
-    --main-color: #1976d2;
+    --main-color: #0558DC;
 }
+
 
 html{
     background-image: url(./bg2.png);
@@ -19,14 +20,14 @@ html{
 }
 
 body{
-    width: 60%;
+    /* width: 100%; */
+    /* top: 1000px; */
     margin: 0 auto;
-    padding: 0 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    -webkit-backdrop-filter: blur(50px);
-    backdrop-filter: blur(50px);
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    /* -webkit-backdrop-filter: blur(5px); */
+    /* backdrop-filter: blur(5px); */
     font-family: system-ui;
-
+    min-height: 100vh;
     /* color: #333333; */
     /* font-family: jinkaiFont; */
 }
@@ -56,7 +57,16 @@ li {
 }
 
 .nav-area{
+    /* position: fixed; */
+    top: 0;
+    width: 100vw;
+    z-index:999;
     display: flex;
+    padding: 0 25px;
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
 }
 .nav-area a{
     text-decoration: none;
@@ -67,8 +77,20 @@ li {
 
 .char-total-counter{
     text-align: end;
-    font-size: 17px;
-    color: #666666;
+    /* font-size: 17px; */
+    /* color: #666666; */
+
+}
+
+.char-total-counter span{
+    margin: 25px 15vw;
+    padding: 5px 15px;
+    backdrop-filter: blur(25px);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    color: #666666;;
 }
 
 .char-counter{
@@ -87,17 +109,36 @@ li {
 
 .slogan{
     font-size: 24px;
-    margin: 50px 0 50px 0;
+    margin: 50px auto;
     text-align: center;
+    /* letter-spacing: 1rem; */
+    /* color: var(--main-color); */
+
+}
+
+.slogan span{
+    padding: 5px 15px;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
     color: var(--main-color);
 }
 
 .post-line{
-    padding: 25px 0 25px 0;
+    margin: 25px 15vw;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    border-radius: 10px;
 }
 
 .post-title{
     font-size: 23px;
+    
 }
 .post-summary{
     margin: 20px 0 20px 0;
@@ -130,33 +171,58 @@ li {
 
 @media screen and (max-width: 1200px) {
     body {
-        width: 65%;
+        /* width: 65%; */
         margin: 0 auto;
-        padding: 0 20px;
+        /* padding: 0 20px; */
+    }
+    .post-line{
+        margin: 25px 10vw;
+        padding: 15px;
+    }
+    .char-total-counter span{
+        margin: 25px 10vw;
+        padding: 5px 15px;
     }
 }
 
 @media screen and (max-width: 992px) {
     body {
-        width: 75%;
+        /* width: 75%; */
         margin: 0 auto;
-        padding: 0 20px;
+        /* padding: 0 20px; */
+    }
+    .post-line{
+        margin: 25px 10vw;
+        padding: 15px;
+
+    }
+    .char-total-counter span{
+        margin: 25px 10vw;
+        padding: 5px 15px;
     }
 }
 
 @media screen and (max-width: 768px) {
     body {
-        width: 85%;
+        /* width: 85%; */
         margin: 0 auto;
-        padding: 0 20px;
+        /* padding: 0 20px; */
+    }
+    .post-line{
+        margin: 25px 5vw;
+        padding: 15px;
+    }
+    .char-total-counter span{
+        margin: 25px 5vw;
+        padding: 5px 15px;
     }
 }
 
 @media screen and (max-width: 576px) {
     body {
-        width: 100%;
+        /* width: 100%; */
         margin: 0 auto;
-        padding: 0 20px;
+        /* padding: 0 20px; */
     }
     
     .nav-area a{
@@ -182,5 +248,13 @@ li {
 
     .post-info{
         font-size: 14px;
+    }
+    .post-line{
+        margin: 25px 5vw;
+        padding: 15px;
+    }
+    .char-total-counter span{
+        margin: 25px 5vw;
+        padding: 5px 15px;
     }
 }
