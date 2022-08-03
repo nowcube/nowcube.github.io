@@ -21,11 +21,11 @@ displayMenu.onclick = function () {
 
 //设置body背景
 var htmlBgs=[];
-htmlBgs[0]="./bg.jpg";
-htmlBgs[1]="./bg2.jpg";
-htmlBgs[2]="./bg3.jpg";
-htmlBgs[3]="./bg4.jpg";
-htmlBgs[4]="./bg5.jpg";
+htmlBgs[0]="./bg.webp";
+htmlBgs[1]="./bg2.webp";
+htmlBgs[2]="./bg3.webp";
+htmlBgs[3]="./bg4.webp";
+htmlBgs[4]="./bg5.webp";
 
 var randomBgIndex = Math.round(Math.random()*4);
 document.body.style.backgroundImage="url('"+htmlBgs[randomBgIndex]+"')";
