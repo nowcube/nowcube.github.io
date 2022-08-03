@@ -22,7 +22,7 @@ html{
 body{
     font-family: system-ui;
     min-height: 100vh;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 a {
@@ -49,6 +49,10 @@ li {
     font-size: 20px;
 }
 
+.menu{
+    display: none;
+}
+
 .nav-area{
     position: fixed;
     top: 0;
@@ -61,6 +65,7 @@ li {
     -webkit-backdrop-filter: blur(25px);
     backdrop-filter: blur(25px);
     padding: 0 15vw;
+    align-items: center;
 }
 .nav-area a{
     height: 50px;
@@ -102,14 +107,16 @@ li {
 
 .slogan{
     font-size: 24px;
-    margin: 250px auto;
     text-align: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
 }
 
 .slogan span{
     padding: 5px 15px;
-    -webkit-backdrop-filter: blur(25px);
-    backdrop-filter: blur(25px);
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.7);
     -webkit-backdrop-filter: blur(25px);
@@ -154,6 +161,15 @@ li {
     color: #666666;
 }
 
+/* .footer{
+    text-align: center;
+    margin: 25px 15vw;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    color: var(--main-color);
+} */
 
 @media screen and (max-width: 1200px) {
     ul {
@@ -169,7 +185,7 @@ li {
     }
 
     .slogan{
-        margin: 200px auto;
+        height: 70vh;
     }
 }
 
@@ -187,7 +203,7 @@ li {
     }
     
     .slogan{
-        margin: 150px auto;
+        height: 70vh;
     }
 }
 
@@ -205,7 +221,7 @@ li {
     }
 
     .slogan{
-        margin: 100px auto;
+        height: 70vh;
     }
 }
 
@@ -214,23 +230,33 @@ li {
         margin: 25px 3vw;
     }
 
+    .menu{
+        display:flex;
+        height: 50px;
+        align-items: center;
+    }
+
     .nav-area{
+        align-items: flex-start;
+        justify-content: center;
         padding: 0 3vw;
-        justify-content: space-around;
+        flex-direction: column;
+        height: 50px;
+    }
+
+    .nav-area a{
+        font-size: 18px;
+        padding: 10px 0;
+        display: none;
     }
 
     .char-total-counter{
         margin: 25px 3vw;
     }
 
-    .nav-area a{
-        font-size: 18px;
-    }
-
     .slogan{
         font-size: 20px;
-        margin:60px 0 60px 0;
-        color: var(--main-color);
+        height: 70vh;
     }
 
     .char-total-counter{

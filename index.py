@@ -147,18 +147,26 @@ part='''
 </head>
 
 <body>
-    <div class="nav-area"><a href="./index.html">MoedayNano</a><a href="./tags.html">Tags</a><a
-            href="./about.html">About</a><a href="./MoEditor.html">MoEditor</a>
+    <div class="nav-area" id="navbar">
+        <div id="show_menu" class="menu">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+                <path d="M3.25 17.625v-1.5h17.5v1.5Zm0-4.875v-1.5h17.5v1.5Zm0-4.875v-1.5h17.5v1.5Z" />
+            </svg>
+        </div>
+        <a id="item" href="./index.html">MoedayNano</a>
+        <a id="item2" href="./tags.html">Tags</a>
+        <a id="item3" href="./about.html">About</a>
+        <a id="item4" href="./MoEditor.html">MoEditor</a>
     </div>
-    <div class="slogan"><span>让爱伴随永生</span></div>
+    <div class="slogan"><span>让爱伴随永生，欢迎来到我的博客</span></div>
     <div class="char-total-counter"><span>{}篇文章 {}字</span></div>
     <ul>
         
         {}
 
     </ul>
+    <script type="text/javascript" src="index.js"></script>
 </body>
-
 </html>
 '''
 content=part.format(allFileNums,allFileChars,postLineS)

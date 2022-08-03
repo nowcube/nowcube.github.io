@@ -84,10 +84,11 @@ def output_BasicHtml(filePath):
 #开始进行文件写入
 filePath="."
 for i in output_BasicHtml(filePath):
+    # print(i)
     fileTitle=get_FileTitle(i)
     fileTag=get_FileTag(i)
     fileNumber=get_FileNumbers(i)
-    fileModifyTime=get_FileModifyTime(i)
+    fileModifyTime=get_FileModifyTime(i.replace("html", "md"))
     # print(fileTitle,fileTag,fileNumber,fileModifyTime)
     file = open( "{}".format(i), "r", encoding="utf-8" )
     content=file.read()
