@@ -104,15 +104,28 @@ for i in output_BasicHtml(filePath):
 </head>
 
 <body>
-    <div class="nav-area"><a href="../index.html">MoedayNano</a><a href="../tags.html">Tags</a><a
-            href="../about.html">About</a><a href="../MoEditor.html">MoEditor</a>
+    <header class="header">
+        <div class="navbar mica no-border no-shadow">
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="link-group">
+                <a class="link-item" href="../index.html">Home</a>
+                <a class="link-item" href="../tags.html">Tags</a>
+                <a class="link-item" href="../about.html">About</a>
+                <a class="link-item" href="../MoEditor.html">MoEditor</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <p class="title">{}</p>
+        <p class="tag"><a href="../tags.html#{}">「 {} 」</a></p>
+        <p class="char-counter">字数{} 日期{}</p>
+        {}
     </div>
-    <p class="title">{}</p>
-    <p class="tag"><a href="../tags.html#{}">「 {} 」</a></p>
-    <p class="char-counter">字数{} 日期{}</p>
-
-    {}
-
+    <script src="../navbar.js"></script>
 </body>
 
 </html>

@@ -80,7 +80,24 @@ def createPostLine(filePath):
     fileTag=get_FileTag(filePath)
     fileNumbers=get_FileNumbers(filePath)
     fileModifyTime=get_FileModifyTime(filePath)
-    postLine="<li class=\"post-line\"><a class=\"post-title\" href=\"{}\">{}</a><a href=\"{}\"><div class=\"post-summary\">{}</div></a><div class=\"post-info\"><div class=\"category-left\"><a href=\"./tags.html#{}\">{}</a></div><div class=\"category-right\">字数{} 日期{}</div></div></li>".format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers,fileModifyTime)
+    # fileModifyTime=''
+    postLine='''
+        <li class="post-line mica no-shadow">
+            <a class="post-title" href="{}">{}</a>
+            <a href="{}">
+                <div class="post-summary">
+                    {}
+                </div>
+            </a>
+            <div class="post-info">
+                <div class="category-left"><a href="./tags.html#{}">{}</a></div>
+                <div class="category-right">字数{} 日期{}</div>
+            </div>
+        </li>
+    '''
+    # postLine="<li class=\"post-line mica\"><a class=\"post-title\" href=\"{}\">{}</a><a href=\"{}\"><div class=\"post-summary\">{}</div></a><div class=\"post-info\"><div class=\"category-left\"><a href=\"./tags.html#{}\">{}</a></div><div class=\"category-right\">字数{} 日期{}</div></div></li>".format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers,fileModifyTime)
+    # print(postLine)
+    postLine=postLine.format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers,fileModifyTime)
     # print(postLine)
     return postLine
 
@@ -142,24 +159,27 @@ part='''
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width initial-scale=1'>
-    <title>MoedayNano</title>
+    <title>moeday's blog</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <div class="nav-area" id="navbar">
-        <div id="show_menu" class="menu">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
-                <path d="M3.25 17.625v-1.5h17.5v1.5Zm0-4.875v-1.5h17.5v1.5Zm0-4.875v-1.5h17.5v1.5Z" />
-            </svg>
+    <header class="header">
+        <div class="navbar mica no-border no-shadow">
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="link-group">
+                <a class="link-item" href="./index.html">Home</a>
+                <a class="link-item" href="./tags.html">Tags</a>
+                <a class="link-item" href="./about.html">About</a>
+                <a class="link-item" href="./MoEditor.html">MoEditor</a>
+            </div>
         </div>
-        <a id="item" href="./index.html">MoedayNano</a>
-        <a id="item2" href="./tags.html">Tags</a>
-        <a id="item3" href="./about.html">About</a>
-        <a id="item4" href="./MoEditor.html">MoEditor</a>
-    </div>
-    <div class="slogan"><span>让爱伴随永生，欢迎来到我的博客</span></div>
-    <div class="char-total-counter"><span>{}篇文章 {}字</span></div>
+    </header>
+    <div class="slogan"><span class="mica no-shadow">让爱伴随永生</span></div>
+    <div class="char-total-counter"><span class="mica no-shadow">{}篇文章 {}字</span></div>
     <ul>
         
         {}

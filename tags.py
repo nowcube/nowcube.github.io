@@ -91,12 +91,26 @@ part='''
 </head>
 
 <body>
-    <div class="nav-area"><a href="./index.html">MoedayNano</a><a href="./tags.html">Tags</a><a
-            href="./about.html">About</a><a href="./MoEditor.html">MoEditor</a>
-    </div>
+    <header class="header">
+        <div class="navbar mica no-border no-shadow">
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="link-group">
+                <a class="link-item" href="./index.html">Home</a>
+                <a class="link-item" href="./tags.html">Tags</a>
+                <a class="link-item" href="./about.html">About</a>
+                <a class="link-item" href="./MoEditor.html">MoEditor</a>
+            </div>
+        </div>
+    </header>
 
-    {}
+    <div class="content">
+        {}
+    </div>
     
+    <script src="./navbar.js"></script>
 </body>
 
 </html>
