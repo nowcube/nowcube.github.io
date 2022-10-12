@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #f6f6f6;
+    /* background-color: #f6f6f6; */
     font-family: 'LXGWWenKaiLite', serif;
 }
 
@@ -218,4 +218,7 @@ li {
         font-size: 18px;
     }
 
+    .link-group a {
+        font-size: 16px;
+    }
 }

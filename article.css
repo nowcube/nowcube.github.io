@@ -11,20 +11,26 @@
 
 
 body {
-    background-color: #f6f6f6;
+    /* background-color: #f6f6f6; */
     color: #333333;
     font-family: 'LXGWWenKaiLite', serif;
 }
 
 code {
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
     display: flex;
     flex-direction: column;
     margin: 20px 0;
     padding: 15px 8px;
-    border: 1px solid #5c88a442;
-    border-radius: 3px;
+    /* border: 1px solid #5c88a442; */
+    /* border-radius: 3px; */
     overflow: auto;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border-width: thin;
+    border-style: solid;
+    border-color: #e1e6ea;
+    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 kbd {
