@@ -82,7 +82,7 @@ def createPostLine(filePath):
     fileModifyTime=get_FileModifyTime(filePath)
     # fileModifyTime=''
     postLine='''
-        <li class="post-line mica no-shadow">
+        <li class="post-line mica no-shadow no-blur">
             <a class="post-title" href="{}">{}</a>
             <a href="{}">
                 <div class="post-summary">
@@ -178,8 +178,8 @@ part='''
             </div>
         </div>
     </header>
-    <div class="slogan"><span class="mica no-shadow">让爱伴随永生</span></div>
-    <div class="char-total-counter"><span class="mica no-shadow">{}篇文章 {}字</span></div>
+    <div class="slogan"><span class="mica no-shadow no-blur">让爱伴随永生</span></div>
+    <div class="char-total-counter"><span class="mica no-shadow no-blur">{}篇文章 {}字</span></div>
     <ul>
         
         {}

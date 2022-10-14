@@ -113,22 +113,16 @@ li {
     transform: translateZ(0);
 }
 
-.mica-dark {
-    color: white;
-    background-color: #232734db;
-    border-color: #2d2d2d1a;
-}
-
-.mica-dark a {
-    color: white;
-}
-
 .no-shadow {
     box-shadow: none;
 }
 
 .no-border {
     border-radius: 0;
+}
+
+.no-blur {
+    background-color: #FBFBFB;
 }
 
 .char-total-counter {
