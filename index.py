@@ -82,7 +82,7 @@ def createPostLine(filePath):
     fileModifyTime=get_FileModifyTime(filePath)
     # fileModifyTime=''
     postLine='''
-        <li class="post-line mica no-shadow no-blur">
+        <div class="post-line">
             <a class="post-title" href="{}">{}</a>
             <a href="{}">
                 <div class="post-summary">
@@ -93,7 +93,7 @@ def createPostLine(filePath):
                 <div class="category-left"><a href="./tags.html#{}">{}</a></div>
                 <div class="category-right">字数{} 日期{}</div>
             </div>
-        </li>
+        </div>
     '''
     # postLine="<li class=\"post-line mica\"><a class=\"post-title\" href=\"{}\">{}</a><a href=\"{}\"><div class=\"post-summary\">{}</div></a><div class=\"post-info\"><div class=\"category-left\"><a href=\"./tags.html#{}\">{}</a></div><div class=\"category-right\">字数{} 日期{}</div></div></li>".format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers,fileModifyTime)
     # print(postLine)
@@ -160,12 +160,12 @@ part='''
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width initial-scale=1'>
     <title>moeday's blog</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index2.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="navbar mica no-border no-shadow">
+    <div class="header">
+        <div class="navbar">
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -177,15 +177,15 @@ part='''
                 <a class="link-item" href="./MoEditor.html">MoEditor</a>
             </div>
         </div>
-    </header>
-    <div class="slogan"><span class="mica no-shadow no-blur">让爱伴随永生</span></div>
-    <div class="char-total-counter"><span class="mica no-shadow no-blur">{}篇文章 {}字</span></div>
-    <ul>
-        
+    </div>
+    <div class="hero">
+        <div class="slogan"><span>让爱伴随永生</span></div>
+        <div class="char-total-counter"><span>{}篇文章 {}字</span></div>
+    </div>
+    <div class="posts">
         {}
-
-    </ul>
-    <script type="text/javascript" src="index.js"></script>
+    </div>
+    <script type="text/javascript" src="index2.js"></script>
 </body>
 </html>
 '''
