@@ -42,6 +42,7 @@ a {
     padding: 0 16vw;
     height: 54px;
     backdrop-filter: blur(12px);
+    /* border: #e1e4e84b 1px solid; */
 }
 
 .bar {
@@ -103,14 +104,18 @@ a {
 
 .posts {
     padding: 24px 16vw;
-    background-color: #F6F8FA;
+    /* background-color: #FAF9F8; */
+    background-color: #FFFFFF;
+    /* border-top: #E1E4E8 1px solid; */
 }
 
 .post-line {
     margin-top: 24px;
     padding: 16px;
-    background-color: #FFF;
-    border-radius: 8px;
+    /* background-color: #FFF; */
+    /* border-radius: 8px; */
+    /* border: #E1E4E8 1px solid; */
+    border-bottom: #E1E4E8 1px solid;
 }
 
 .post-title {
@@ -176,7 +181,7 @@ a {
     }
 
     .posts {
-        padding: 24px 8vw;
+        padding: 24px 4vw;
     }
 
     .link-item:hover {
