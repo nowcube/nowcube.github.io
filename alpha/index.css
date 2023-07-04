@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "LXGWWenKaiLite";
+    src: url("./LXGWWenKaiLite-Regular.ttf");
+}
+
+
+body {
+    font-family: 'LXGWWenKaiLite';
+    /* background: url(bg.jpg);
+    background-repeat: repeat, repeat;
+    background-attachment: scroll, scroll;
+    background-size: auto, auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; */
+    background-color: #f9f9fb;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 0 20vw;
+    /* z-index: 1; */
+    display: flex;
+    border-bottom: 1px solid #DDD;
+    /* background-color: #f9f9fb; */
+    backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(251, 251, 253, .8);
+}
+
+.navMenu {
+    display: none;
+    line-height: 20px;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.navLinkGroup {
+    display: flex;
+}
+
+.navLink {
+    font-size: 20px;
+    color: #333;
+    line-height: 20px;
+    padding: 20px;
+}
+
+.slogan {
+    height: 200px;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #666;
+}
+
+.content {
+    margin: 0 20vw;
+}
+
+.card {
+    padding: 20px;
+    border-bottom: 1px solid #DDD;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.title a {
+    color: #000;
+}
+
+.summary {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.summary a {
+    color: #333;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tag {
+    font-size: 14px;
+}
+
+.tag a {
+    color: #666;
+}
+
+.countAndDate {
+    font-size: 14px;
+    color: #666;
+}
+
+
+@media (max-width: 1000px) {
+    .content {
+        margin: 0 5vw;
+    }
+
+    .navbar {
+        padding: 0 5vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .content {
+        margin: 0;
+    }
+
+    .navbar {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .navMenu {
+        display: flex;
+    }
+
+    .navLinkGroup {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .active {
+        display: flex;
+    }
+
+    .navLink {
+        font-size: 16px;
+    }
+
+    .slogan {
+        font-size: 16px;
+        padding: 0 20px;
+        height: 150px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .summary {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .tag {
+        font-size: 10px;
+    }
+
+    .countAndDate {
+        font-size: 10px;
+    }
+}

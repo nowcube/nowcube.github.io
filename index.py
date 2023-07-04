@@ -91,13 +91,13 @@ def createPostLine(filePath):
             </a>
             <div class="post-info">
                 <div class="category-left"><a href="./tags.html#{}">{}</a></div>
-                <div class="category-right">字数{} 日期{}</div>
+                <div class="category-right">字数{}</div>
             </div>
         </div>
     '''
     # postLine="<li class=\"post-line mica\"><a class=\"post-title\" href=\"{}\">{}</a><a href=\"{}\"><div class=\"post-summary\">{}</div></a><div class=\"post-info\"><div class=\"category-left\"><a href=\"./tags.html#{}\">{}</a></div><div class=\"category-right\">字数{} 日期{}</div></div></li>".format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers,fileModifyTime)
     # print(postLine)
-    postLine=postLine.format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers,fileModifyTime)
+    postLine=postLine.format(fileLink,fileTitle,fileLink,fileExtract,fileTag,fileTag,fileNumbers)
     # print(postLine)
     return postLine
 
@@ -165,7 +165,7 @@ part='''
 
 <body>
     <div class="header">
-        <div class="navbar">
+        <div class="navbar acrylic">
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>

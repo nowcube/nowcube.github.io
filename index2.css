@@ -21,8 +21,9 @@ html {
 
 body {
     font-size: 16px;
-    background-color: #fbfbfb93;
-    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    /* background-color: #fbfbfb93; */
+    /* font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; */
+    font-family: "LXGWWenKaiLite";
 }
 
 a {
@@ -41,7 +42,7 @@ a {
     /* z-index: 100; */
     padding: 0 16vw;
     height: 54px;
-    backdrop-filter: blur(12px);
+    /* backdrop-filter: blur(12px); */
     /* border: #e1e4e84b 1px solid; */
 }
 
@@ -76,6 +77,7 @@ a {
 }
 
 .hero {
+    background-color: #fbfbfb93; 
     height: 512px;
     display: flex;
     align-items: center;
@@ -144,6 +146,39 @@ a {
 
 .category-right {
     color: var(--theme-text-subtle);
+}
+
+.acrylic {
+    /* border-radius: 8px; */
+    border-width: thin;
+    border-style: solid;
+    border-color: #e5e5e5;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: #F7F7F7CC;
+    overflow-y: auto;
+    background-image: url('noise.png');
+    background-repeat: repeat;
+    box-shadow: 0px 25.6px 57.6px rgb(0 0 0 / 14%), 0px 0px 16.4px rgb(0 0 0 / 12%);
+    transform: translateZ(0);
+}
+
+.mica {
+    border-radius: 8px;
+    border-width: thin;
+    border-style: solid;
+    border-color: #e1e6ea;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: #f7f9fcdb;
+    overflow-y: auto;
+    box-shadow: 0px 25.6px 57.6px rgb(0 0 0 / 14%), 0px 0px 16.4px rgb(0 0 0 / 12%);
+    transform: translateZ(0);
+}
+
+@font-face {
+    font-family: "LXGWWenKaiLite";
+    src: url("./LXGWWenKaiLite-Regular.ttf");
 }
 
 @media screen and (max-width:1007px) {}

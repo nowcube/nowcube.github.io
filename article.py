@@ -122,7 +122,7 @@ for i in output_BasicHtml(filePath):
     <div class="content">
         <p class="title">{}</p>
         <p class="tag"><a href="../tags.html#{}">「 {} 」</a></p>
-        <p class="char-counter">字数{} 日期{}</p>
+        <p class="char-counter">字数{}</p>
         {}
     </div>
     <script src="../navbar.js"></script>
@@ -130,7 +130,7 @@ for i in output_BasicHtml(filePath):
 
 </html>
 '''
-    content=articlePart.format(fileTitle,fileTitle,fileTag,fileTag,fileNumber,fileModifyTime,content)
+    content=articlePart.format(fileTitle,fileTitle,fileTag,fileTag,fileNumber,content)
     # print(content)
     file = open( "{}".format(i), "w", encoding="utf-8" )
     file.write(content)
