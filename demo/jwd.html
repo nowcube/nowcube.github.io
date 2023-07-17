@@ -11,29 +11,20 @@
 
 
     <script>
-        function getLocation() {
+        setInterval(()=>{
             navigator.geolocation.getCurrentPosition(position => {
                 // 在控制台输出经纬度和海拔高度
                 console.log(`纬度：${position.coords.latitude}`);
                 console.log(`经度：${position.coords.longitude}`);
-                console.log(`海拔高度：${position.coords.altitude}`);
-                console.log(`行进速度：${position.coords.speed}`);
-                console.log(`行进方向：${position.coords.heading}`);
 
                 let positionCode = document.createElement("code");
                 positionCode.textContent="纬度" + position.coords.latitude + " 经度" + position.coords.longitude;
+                let br = document.createElement("hr");
+                positionCode.appendChild(br)
                 document.body.appendChild(positionCode);
-            }, error => {
-                // 在控制台输出错误信息
-                console.log(error);
-            }, {
-                enableHighAccuracy: true,
-                timeout: 10000,
-                maximumAge: 0
             });
-        }
 
-        setTimeout(getLocation(), 1000);
+        }, 5000);
     </script>
 </body>
 
