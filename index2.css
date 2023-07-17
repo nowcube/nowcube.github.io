@@ -12,11 +12,11 @@
 }
 
 html {
-    background-image: url(./1.webp);
+    /* background-image: url(./1.webp);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
 }
 
 body {
@@ -44,6 +44,10 @@ a {
     height: 54px;
     /* backdrop-filter: blur(12px); */
     /* border: #e1e4e84b 1px solid; */
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85);
+    /* backdrop-filter: blur(40px);
+    background-color: #f7f9fcdb; */
 }
 
 .bar {
@@ -77,8 +81,8 @@ a {
 }
 
 .hero {
-    background-color: #fbfbfb93; 
-    height: 512px;
+    /* background-color: #fbfbfb93;  */
+    height: 256px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,7 +109,7 @@ a {
 }
 
 .posts {
-    padding: 24px 16vw;
+    padding: 0 16vw;
     /* background-color: #FAF9F8; */
     background-color: #FFFFFF;
     /* border-top: #E1E4E8 1px solid; */
@@ -216,7 +220,7 @@ a {
     }
 
     .posts {
-        padding: 24px 4vw;
+        padding: 0 4vw;
     }
 
     .link-item:hover {

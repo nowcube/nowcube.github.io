@@ -35,8 +35,10 @@ a {
     display: flex;
     border-bottom: 1px solid #DDD;
     /* background-color: #f9f9fb; */
-    backdrop-filter: saturate(180%) blur(20px);
-    background: rgba(251, 251, 253, .8);
+    /* backdrop-filter: saturate(180%) blur(20px); */
+    /* background: rgba(255, 255, 255, 0.85); */
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .navMenu {

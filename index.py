@@ -165,7 +165,7 @@ part='''
 
 <body>
     <div class="header">
-        <div class="navbar acrylic">
+        <div class="navbar">
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
