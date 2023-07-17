@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body>
-
-
     <script>
-        setInterval(()=>{
+        setInterval(function displayLocation() {
             navigator.geolocation.getCurrentPosition(position => {
-                // 在控制台输出经纬度和海拔高度
-                console.log(`纬度：${position.coords.latitude}`);
-                console.log(`经度：${position.coords.longitude}`);
-
                 let positionCode = document.createElement("code");
-                positionCode.textContent="纬度" + position.coords.latitude + " 经度" + position.coords.longitude;
+                positionCode.textContent = "纬度" + position.coords.latitude + " 经度" + position.coords.longitude;
                 let br = document.createElement("hr");
                 positionCode.appendChild(br)
                 document.body.appendChild(positionCode);
             });
-
-        }, 5000);
+        }(), 300000);
     </script>
 </body>
 
