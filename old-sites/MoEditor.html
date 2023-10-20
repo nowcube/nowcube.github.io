@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoEditor - easy to markdown</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css"
+        integrity="sha512-zb2pp+R+czM7GAemdSUQt6jFmr3qCo6ikvBgVU6F5GvwEDR0C2sefFiPEJ9QUpmAKdD5EqDUdNRtbOYnbF/eyQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *:not(.rightbox *) {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui;
+        }
+
+        textarea {
+            resize: none;
+            outline: none;
+            border: none;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 36px);
+            border-bottom: 1px solid #C7C7C7;
+        }
+
+        .navbar {
+            display: flex;
+            height: 36px;
+            border-bottom: 1px solid #C7C7C7;
+            background-color: #f5f5f5;
+            color: #000;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .navbar-item {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 1rem 0 1rem;
+            cursor: pointer;
+        }
+
+        .navbar-item:hover {
+            background-color: #FAFAFA;
+            color: black;
+        }
+
+        .leftbox,
+        .rightbox {
+            background-color: #FAFAFA;
+            width: 50vw;
+            overflow: scroll;
+            /* padding: 0 10px 0 10px; */
+        }
+
+        .leftbox {
+            /* background-color: #FAFAFA; */
+            border-right: 1px solid #C7C7C7;
+            margin: 0 auto;
+            padding: 20px 45px 20px 45px;
+        }
+
+        .leftbox::selection {
+            background-color: #B3E5FC;
+        }
+
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }            
+            
+            .leftbox {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="navbar-item" href="#" id="fileSelect">Open</a>
+        <input style="display: none;" type="file" id="fileElem" onchange="fileToMarkdown.call(this)"
+            accept="texd dt/md,text/mdown,text/markdown,text/txt" />
+        <div onclick="download(fileName,document.getElementById('source').value)" class="navbar-item">Save</div>
+        <a class="navbar-item" href="#" onclick="about()">About</a>
+    </div>
+    <div class="container">
+        <textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="on"
+            class="leftbox" id="source" oninput="trans()">## MoEditor</textarea>
+        <div class="rightbox markdown-body" id="content"></div>
+    </div>
+
+
+    <!-- Markdown支持 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.18/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.9/dist/purify.min.js"></script>
+    <script>
+
+        // textarea转成markdown
+        function trans() {
+            document.getElementById('content').innerHTML =
+                DOMPurify.sanitize(marked.parse(document.getElementById('source').value));
+        }
+        trans();
+
+        //Tab键支持
+        document.getElementById('source').addEventListener('keydown', function (e) {
+            if (e.key == 'Tab') {
+                e.preventDefault();
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+
+                // set textarea value to: text before caret + tab + text after caret
+                this.value = this.value.substring(0, start) +
+                    "\t" + this.value.substring(end);
+
+                // put caret at right position again
+                this.selectionStart =
+                    this.selectionEnd = start + 1;
+            }
+        });
+
+        //Markdown读取器
+        var fileName = "Unknow.md";
+        function fileToMarkdown() {
+            console.log(this.files);
+            var reader = new FileReader();
+            reader.readAsText(this.files[0]);
+            fileName = (this.files[0].name);
+            reader.onload = function () {
+                document.getElementById('source').value = this.result;
+                trans();
+            }
+        }
+
+        //美化fileSelector
+        var fileSelect = document.getElementById("fileSelect"),
+            fileElem = document.getElementById("fileElem");
+
+        fileSelect.addEventListener("click", function (e) {
+            if (fileElem) {
+                fileElem.click();
+            }
+            e.preventDefault(); // prevent navigation to "#"
+        }, false);
+
+        //下载markdown file
+        function download(filename, text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        //About 提示框
+        function about() {
+            alert("made by moeday\n\npowered by\n    marked@4.0.18\n    dompurify@2.3.9\n\nEnjoy!")
+        }
+    </script>
+</body>
+
+</html>

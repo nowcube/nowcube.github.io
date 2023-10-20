@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: rgba(255, 0, 0, 0.1); */
+}
+
+:root {
+    --theme-text-subtle: #505050;
+    --theme-text: #171717;
+    --theme-hyperlink: #0065b3;
+}
+
+html {
+    /* background-image: url(./1.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; */
+}
+
+body {
+    font-size: 16px;
+    /* background-color: #fbfbfb93; */
+    /* font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; */
+    font-family: "LXGWWenKaiLite";
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    height: 54px;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    /* z-index: 100; */
+    padding: 0 16vw;
+    height: 54px;
+    /* backdrop-filter: blur(12px); */
+    /* border: #e1e4e84b 1px solid; */
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85);
+    /* backdrop-filter: blur(40px);
+    background-color: #f7f9fcdb; */
+}
+
+.bar {
+    width: 20px;
+    height: 2.2px;
+    background-color: rgb(62, 62, 62);
+    margin: 5px 0;
+    display: block;
+}
+
+.link-group {
+    display: flex;
+    align-items: center;
+}
+
+.link-item {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    text-decoration: none;
+    color: var(--theme-text);
+}
+
+.link-item:hover {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.hamburger {
+    display: none;
+    padding: 1rem;
+}
+
+.hero {
+    /* background-color: #fbfbfb93;  */
+    height: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slogan span {
+    font-size: max(1.3125rem, min(15.4737px + 1.15132vw, 1.75rem));
+    color: var(--theme-text);
+    font-weight: 100;
+    letter-spacing: 0.5rem;
+}
+
+.char-total-counter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.char-total-counter span {
+    font-size: 1rem;
+    color: var(--theme-text-subtle);
+    margin-top: 0.5rem;
+}
+
+.posts {
+    padding: 0 16vw;
+    /* background-color: #FAF9F8; */
+    background-color: #FFFFFF;
+    /* border-top: #E1E4E8 1px solid; */
+}
+
+.post-line {
+    margin-top: 24px;
+    padding: 16px;
+    /* background-color: #FFF; */
+    /* border-radius: 8px; */
+    /* border: #E1E4E8 1px solid; */
+    border-bottom: #E1E4E8 1px solid;
+}
+
+.post-title {
+    font-size: 1.125rem;
+    color: var(--theme-text);
+}
+
+.post-summary {
+    margin-top: 1rem;
+    color: var(--theme-text-subtle);
+}
+
+.post-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.865rem;
+}
+
+.category-left a {
+    color: var(--theme-hyperlink);
+    background-color: #0065b313;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+}
+
+.category-right {
+    color: var(--theme-text-subtle);
+}
+
+.acrylic {
+    /* border-radius: 8px; */
+    border-width: thin;
+    border-style: solid;
+    border-color: #e5e5e5;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: #F7F7F7CC;
+    overflow-y: auto;
+    background-image: url('noise.png');
+    background-repeat: repeat;
+    box-shadow: 0px 25.6px 57.6px rgb(0 0 0 / 14%), 0px 0px 16.4px rgb(0 0 0 / 12%);
+    transform: translateZ(0);
+}
+
+.mica {
+    border-radius: 8px;
+    border-width: thin;
+    border-style: solid;
+    border-color: #e1e6ea;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: #f7f9fcdb;
+    overflow-y: auto;
+    box-shadow: 0px 25.6px 57.6px rgb(0 0 0 / 14%), 0px 0px 16.4px rgb(0 0 0 / 12%);
+    transform: translateZ(0);
+}
+
+@font-face {
+    font-family: "LXGWWenKaiLite";
+    src: url("./LXGWWenKaiLite-Regular.ttf");
+}
+
+@media screen and (max-width:1007px) {}
+
+@media screen and (max-width: 640px) {
+    .link-group {
+        flex-direction: column;
+        display: none;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 0;
+        height: auto;
+    }
+
+    .link-item {
+        margin-right: 0;
+        text-align: center;
+        padding: 1rem 0;
+        width: 100vw;
+    }
+
+    .hamburger {
+        width: 50px;
+    }
+
+    .active {
+        display: flex;
+    }
+
+    .hamburger {
+        cursor: pointer;
+        display: block;
+    }
+
+    .posts {
+        padding: 0 4vw;
+    }
+
+    .link-item:hover {
+        border-radius: 0;
+    }
+}

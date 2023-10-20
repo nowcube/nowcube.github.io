@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moeday's blog</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navMenu" id="navMenu">
+            moeday
+        </div>
+        <div class="navLinkGroup">
+            <a class="navLink" href="./">Home</a>
+            <a class="navLink" href="#">Tag</a>
+            <a class="navLink" href="#">About</a>
+        </div>
+    </div>
+    <div class="slogan">
+        <img src="./pics/comic_0030.png" alt="" style="width: 250px;">
+    </div>
+    <div class="content"></div>
+</body>
+
+<script>
+    fetch("index.json")
+        .then((response) => response.json())
+        .then((data) => {
+            for (i in data) {
+                let card = createDivWithClass('card');
+                let title = createDivWithClass('title');
+                let info = createDivWithClass('info');
+                let summary = createDivWithClass('summary');
+                let tag = createDivWithClass('tag');
+                let countAndDate = createDivWithClass('countAndDate');
+
+                //创建了标题a元素里面插入内容
+                let titleLink = createAWithClass("/posts/" + data[i].url);
+                titleLink.textContent = data[i].title;
+
+                //创建了内容片段a元素里面插入内容
+                let summaryLink = createAWithClass("/posts/" + data[i].url);
+
+                // fetch("/posts/" + data[i].url)
+                //     .then((response) => response.text())
+                //     .then((data) => {return data});
+
+                // let summaryText = "";
+                // summaryLink.textContent = summaryText.substring(0, 80).concat(' ...'); //截取80个字符
+
+                //创建了标签a元素里面插入内容
+                let tagLink = createAWithClass('#');
+                tagLink.textContent = data[i].tag;
+
+                //每个div插入a元素
+                title.appendChild(titleLink);
+                summary.appendChild(summaryLink);
+                tag.appendChild(tagLink);
+
+                //计数和日期元素插入内容
+                // countAndDate.textContent = '字数' + summaryText.length + ' ' + '日期' + data[i].date;
+                // countAndDate.textContent = data[i].words + '字' + ' ' + data[i].date;
+                countAndDate.textContent = data[i].date;
+
+                //组合card
+                card.appendChild(title)
+                card.appendChild(summary)
+                info.appendChild(tag)
+                info.appendChild(countAndDate)
+                card.appendChild(info)
+
+                //把所有的card都插入content里面
+                document.body.getElementsByClassName('content')[0].appendChild(card);
+            }
+        });
+
+    function createDivWithClass(className) {
+        const div = document.createElement("div");
+        div.setAttribute('class', className);
+        return div;
+    }
+
+    function createAWithClass(href) {
+        const a = document.createElement('a');
+        a.setAttribute('href', href);
+        return a;
+    }
+</script>
+<script>
+    //navbar
+    document.querySelector("#navMenu").addEventListener("click", () => {
+        document.getElementsByClassName('navLinkGroup')[0].classList.toggle("active");
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</html>

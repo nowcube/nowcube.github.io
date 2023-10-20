@@ -1,0 +1,30 @@
+[
+    {
+        "title": "大三了",
+        "tag": "Life",
+        "date": "2022-10-12",
+        "words": "",
+        "url": "?title=2022-10-12-junior"
+    },
+    {
+        "title": "从Windows11到ArchLinux",
+        "tag": "Linux",
+        "date": "2022-07-07",
+        "words": "",
+        "url":"?title=2022-07-07-from-win11-to-arch"
+    },
+    {
+        "title": "高中同学吃饭记",
+        "tag": "Life",
+        "date": "2022-02-19",
+        "words": "",
+        "url": "?title=2022-02-19-high-school-classmates-dinner"
+    },
+    {
+        "title": "博客搭建",
+        "tag": "Web",
+        "date": "2022-02-07",
+        "words": "",
+        "url": "?title=2022-02-07-create-blog"
+    }
+]
