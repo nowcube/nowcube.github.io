@@ -20,74 +20,92 @@
         </div>
     </div>
     <div class="slogan">
-        <img src="./pics/comic_0030.png" alt="" style="width: 250px;">
+        <img src="./pics/comic_0030.png" alt="空无一人的世界" style="width: 250px;">
     </div>
     <div class="content"></div>
 </body>
 
 <script>
+    let cardTemplate = `
+    <div class="card">
+        <div class="title">
+            <a href=""></a>
+        </div>
+        <div class="summary">
+            <a href=""></a>
+        </div>
+        <div class="info">
+            <div class="tag">
+                <a href="#"></a>
+            </div>
+            <div class="countAndDate">
+                <div class="count"></div>
+                <div class="date"></div>
+            </div>
+        </div>
+    </div>
+    `;
+
+
+
     fetch("index.json")
         .then((response) => response.json())
         .then((data) => {
+            document.getElementsByClassName("content")[0].innerHTML = cardTemplate.repeat(data.length);
             for (i in data) {
-                let card = createDivWithClass('card');
-                let title = createDivWithClass('title');
-                let info = createDivWithClass('info');
-                let summary = createDivWithClass('summary');
-                let tag = createDivWithClass('tag');
-                let countAndDate = createDivWithClass('countAndDate');
-
-                //创建了标题a元素里面插入内容
-                let titleLink = createAWithClass("/posts/" + data[i].url);
-                titleLink.textContent = data[i].title;
-
-                //创建了内容片段a元素里面插入内容
-                let summaryLink = createAWithClass("/posts/" + data[i].url);
-
-                // fetch("/posts/" + data[i].url)
-                //     .then((response) => response.text())
-                //     .then((data) => {return data});
-
-                // let summaryText = "";
-                // summaryLink.textContent = summaryText.substring(0, 80).concat(' ...'); //截取80个字符
-
-                //创建了标签a元素里面插入内容
-                let tagLink = createAWithClass('#');
-                tagLink.textContent = data[i].tag;
-
-                //每个div插入a元素
-                title.appendChild(titleLink);
-                summary.appendChild(summaryLink);
-                tag.appendChild(tagLink);
-
-                //计数和日期元素插入内容
-                // countAndDate.textContent = '字数' + summaryText.length + ' ' + '日期' + data[i].date;
-                // countAndDate.textContent = data[i].words + '字' + ' ' + data[i].date;
-                countAndDate.textContent = data[i].date;
-
-                //组合card
-                card.appendChild(title)
-                card.appendChild(summary)
-                info.appendChild(tag)
-                info.appendChild(countAndDate)
-                card.appendChild(info)
-
-                //把所有的card都插入content里面
-                document.body.getElementsByClassName('content')[0].appendChild(card);
+                document.getElementsByClassName("title")[i].querySelector("a").textContent = data[i].title;
+                document.getElementsByClassName("title")[i].querySelector("a").href = "/posts/" + "?title=" + data[i].url;
+                document.getElementsByClassName("summary")[i].querySelector("a").textContent = data[i].url;
+                document.getElementsByClassName("summary")[i].querySelector("a").href = "/posts/" + "?title=" + data[i].url;
+                document.getElementsByClassName("tag")[i].querySelector("a").textContent = data[i].tag;
+                document.getElementsByClassName("date")[i].textContent = data[i].date;
             }
-        });
+            let tempUrls = [];
+            for (i in data) {
+                tempUrls.push("/posts/" + data[i].url + ".md");
+            }
+            return tempUrls;
+        })
+        .then(arrUrls => {
+            for (i = 0; i < arrUrls.length; i++) {
+                console.log(i)
+                let p = i;
+                fetch(arrUrls[i])
+                    .then((response) => response.text())
+                    .then((data) => {
+                        const { metadata, text } = metadataParser(data);
+                        const pureText = marked.parse(text).replace(/<[^>]*>/g, '');
+                        // console.log(metadata.title)
+                        document.getElementsByClassName("summary")[p].querySelector("a").textContent = pureText.substring(0, 80).concat(' ...');
+                        document.getElementsByClassName("count")[p].textContent= pureText.length+"字"
+                    });
+            }
+        })
 
-    function createDivWithClass(className) {
-        const div = document.createElement("div");
-        div.setAttribute('class', className);
-        return div;
-    }
+    // 定义一个元数据解析器
+    function metadataParser(text) {
+        // 用正则表达式匹配元数据
+        const regex = /^---\n([\s\S]*?)\n---\n/;
+        const match = regex.exec(text);
+        // 如果有元数据，返回一个对象，包含元数据和剩余的文本
+        if (match) {
+            const metadata = {};
+            const lines = match[1].split('\n');
+            for (const line of lines) {
+                const [key, value] = line.split(':');
+                metadata[key.trim()] = value.trim();
+            }
+            return {
+                metadata: metadata,
+                text: text.slice(match[0].length),
+            };
+        }
+        // 如果没有元数据，返回原始文本
+        return {
+            text: text,
+        };
+    };
 
-    function createAWithClass(href) {
-        const a = document.createElement('a');
-        a.setAttribute('href', href);
-        return a;
-    }
 </script>
 <script>
     //navbar
