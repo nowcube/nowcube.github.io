@@ -1,6 +1,6 @@
 ---
 title: 高中同学吃饭记
-categories: [Life]
+categories: Life
 date: 2022-02-19
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 博客搭建
-categories: [Web]
+categories: Web
 date: 2022-02-07
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Test Markdown
-categories: [Web]
+categories: Web
 date: 2023-10-19
 ---
 

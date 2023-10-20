@@ -46,24 +46,33 @@
     </div>
     `;
 
-    fetch("links.json")
+    fetch("index.json")
         .then((response) => response.json())
-        .then((urls) => {
-            document.getElementsByClassName("content")[0].innerHTML = cardTemplate.repeat(urls.length);
-            for (i = 0; i < urls.length; i++) {
+        .then((data) => {
+            document.getElementsByClassName("content")[0].innerHTML = cardTemplate.repeat(data.length);
+            for (i in data) {
+                document.getElementsByClassName("title")[i].querySelector("a").textContent = data[i].title;
+                document.getElementsByClassName("title")[i].querySelector("a").href = "/posts/" + "?title=" + data[i].url;
+                document.getElementsByClassName("summary")[i].querySelector("a").textContent = data[i].url;
+                document.getElementsByClassName("summary")[i].querySelector("a").href = "/posts/" + "?title=" + data[i].url;
+                document.getElementsByClassName("tag")[i].querySelector("a").textContent = data[i].tag;
+                document.getElementsByClassName("date")[i].textContent = data[i].date;
+            }
+            let tempUrls = [];
+            for (i in data) {
+                tempUrls.push("/posts/" + data[i].url + ".md");
+            }
+            return tempUrls;
+        })
+        .then(arrUrls => {
+            for (i = 0; i < arrUrls.length; i++) {
+                console.log(i)
                 let p = i;
-                fetch("posts/"+urls[i]+".md")
+                fetch(arrUrls[i])
                     .then((response) => response.text())
                     .then((data) => {
                         const { metadata, text } = metadataParser(data);
                         const pureText = marked.parse(text).replace(/<[^>]*>/g, '');
-                        document.getElementsByClassName("title")[p].querySelector("a").textContent = metadata.title;
-                        document.getElementsByClassName("title")[p].querySelector("a").href = "/posts/" + "?title=" + urls[p];
-                        document.getElementsByClassName("summary")[p].querySelector("a").textContent = metadata.url;
-                        document.getElementsByClassName("summary")[p].querySelector("a").href = "/posts/" + "?title=" + urls[p];
-                        document.getElementsByClassName("tag")[p].querySelector("a").textContent = metadata.categories;
-                        document.getElementsByClassName("date")[p].textContent = metadata.date;
-
                         document.getElementsByClassName("summary")[p].querySelector("a").textContent = pureText.substring(0, 80).concat(' ...');
                         document.getElementsByClassName("count")[p].textContent = pureText.length + "字"
                     });

@@ -1,6 +1,6 @@
 ---
 title: 从Windows11到ArchLinux
-categories: [Linux]
+categories: Linux
 date: 2022-07-07
 ---
 
