@@ -138,4 +138,12 @@ a {
         padding: 0 20px;
         /* height: 150px; */
     }
+
+    .tag-title{
+        font-size: 18px;
+    }
+
+    .tag-link{
+        font-size: 14px;
+    }
 }

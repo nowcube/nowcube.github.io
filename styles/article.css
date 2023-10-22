@@ -91,11 +91,11 @@ a {
 
 .tag {
     margin-top: 0.8rem;
-    font-size: 16px;
 }
 
 .tag a {
     color: #6a79ba;
+    font-size: 16px;
 }
 
 .countAndDate {
@@ -171,12 +171,16 @@ a {
         font-size: 20px;
     }
 
-    .tag {
-        font-size: 10px;
+    .tag{
+        margin-top: 0.1rem;
+    }
+
+    .tag a{
+        font-size: 12px;
     }
 
     .countAndDate {
-        font-size: 10px;
+        font-size: 12px;
         margin: 0;
     }
 }
