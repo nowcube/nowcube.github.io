@@ -9,6 +9,7 @@
     src: url("../fonts/LXGWWenKaiLite-Regular.ttf");
 }
 
+
 body {
     font-family: 'LXGWWenKaiLite';
     /* background: url(../pics/bg.jpg);
@@ -60,67 +61,42 @@ a {
 }
 
 .slogan {
-    height: 200px;
+    height: 300px;
     margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 28px;
+    /* letter-spacing: 0.5rem; */
     color: #666;
-    flex-direction: column;
 }
 
 .content {
     margin: 0 20vw;
-    padding: 0 20px;
-}
-
-/* .content p{
-    text-indent: 2rem;
-    line-height: 1.6;
-} */
-
-.card {
     padding: 20px;
-    border-bottom: 1px solid #DDD;
 }
 
-.title {
-    font-size: 26px;
+.tag-title{
+    font-size: 20px;
     color:#333;
+    margin-bottom: 1rem;
 }
 
-.tag {
-    margin-top: 0.8rem;
-    font-size: 16px;
+.tag-link{
+    font-size: 18px;
+    padding: 0 0 1rem 1rem;
 }
 
-.tag a {
+.tag-link a{
     color: #6a79ba;
 }
 
-.countAndDate {
-    font-size: 14px;
-    color: #666;
-    margin: 0 20vw;
-    padding: 0 20px;
-    display: flex;
-    justify-content: flex-end;
+.tag-link a:hover{
+    color: #333;
 }
-
-/* .content img {
-    max-width: 100%;
-}
-
-.content figure {
-    text-align: center;
-} */
 
 @media (max-width: 1000px) {
     .content {
-        margin: 0 5vw;
-    }
-
-    .countAndDate {
         margin: 0 5vw;
     }
 
@@ -160,23 +136,6 @@ a {
     .slogan {
         font-size: 16px;
         padding: 0 20px;
-        height: 150px;
-    }
-
-    .content {
-        font-size: 14px;
-    }
-
-    .title {
-        font-size: 20px;
-    }
-
-    .tag {
-        font-size: 10px;
-    }
-
-    .countAndDate {
-        font-size: 10px;
-        margin: 0;
+        /* height: 150px; */
     }
 }

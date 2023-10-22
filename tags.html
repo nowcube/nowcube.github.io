@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>moeday's blog</title>
-    <link rel="stylesheet" href="./styles/index.css">
+    <title>tags - moeday's blog</title>
+    <link rel="stylesheet" href="./styles/tags.css">
 </head>
 
 <body>
@@ -20,53 +20,46 @@
         </div>
     </div>
     <div class="slogan">
-        <img src="./pics/comic_0030.png" alt="空无一人的世界" style="width: 250px;">
+        <img src="./pics/Rin 02_st.ayaka.one.png" alt="空无一人的世界" style="width: 200px;">
     </div>
-    <div class="content"></div>
+    <div class="content">
+    </div>
 </body>
 
 <script>
     let cardTemplate = `
-    <div class="card">
-        <div class="title">
-            <a href=""></a>
-        </div>
-        <div class="summary">
-            <a href=""></a>
-        </div>
-        <div class="info">
-            <div class="tag">
-                <a href="#"></a>
-            </div>
-            <div class="countAndDate">
-                <div class="count"></div>
-                <div class="date"></div>
-            </div>
-        </div>
-    </div>
+    
     `;
 
     fetch("links.json")
         .then((response) => response.json())
         .then((urls) => {
-            document.getElementsByClassName("content")[0].innerHTML = cardTemplate.repeat(urls.length);
+            // document.getElementsByClassName("content")[0].innerHTML = cardTemplate.repeat(urls.length);
+            let tag = null;
+            let tempUrls = urls;
             for (i = 0; i < urls.length; i++) {
                 let p = i;
-                fetch("posts/"+urls[i])
+                fetch("posts/" + urls[i])
                     .then((response) => response.text())
                     .then((data) => {
                         const { metadata, text } = metadataParser(data);
-                        const pureText = marked.parse(text).replace(/<[^>]*>/g, '');
-                        document.getElementsByClassName("title")[p].querySelector("a").textContent = metadata.title;
-                        document.getElementsByClassName("title")[p].querySelector("a").href = "/posts/" + "?title=" + urls[p];
-                        document.getElementsByClassName("summary")[p].querySelector("a").textContent = metadata.url;
-                        document.getElementsByClassName("summary")[p].querySelector("a").href = "/posts/" + "?title=" + urls[p];
-                        document.getElementsByClassName("tag")[p].querySelector("a").textContent = metadata.categories;
-                        document.getElementsByClassName("tag")[p].querySelector("a").href = "./tags.html#"+metadata.categories;
-                        document.getElementsByClassName("date")[p].textContent = metadata.date;
-
-                        document.getElementsByClassName("summary")[p].querySelector("a").textContent = pureText.substring(0, 80).concat(' ...');
-                        document.getElementsByClassName("count")[p].textContent = pureText.length + "字"
+                        if (metadata.categories !== tag) {
+                            let tagTitle = document.createElement("div");
+                            tagTitle.className = "tag-title";
+                            tagTitle.id=metadata.categories;
+                            tagTitle.textContent = metadata.categories;
+                            // console.log(tagTitle);
+                            document.getElementsByClassName("content")[0].appendChild(tagTitle);
+                        }
+                        let tagLink = document.createElement("div");
+                        tagLink.className = "tag-link";
+                        let tagLinkA = document.createElement("a");
+                        tagLinkA.setAttribute("href", "posts/?title=" + tempUrls[p]);
+                        tagLinkA.textContent = metadata.title;
+                        tagLink.appendChild(tagLinkA);
+                        // console.log(tagLink);
+                        document.getElementsByClassName("content")[0].appendChild(tagLink);
+                        tag = metadata.categories;
                     });
             }
         })

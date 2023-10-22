@@ -16,13 +16,15 @@
         </div>
         <div class="navLinkGroup">
             <a class="navLink" href="../">Home</a>
-            <a class="navLink" href="#">Tag</a>
+            <a class="navLink" href="../tags.html">Tag</a>
             <a class="navLink" href="#">About</a>
         </div>
     </div>
     <div class="slogan">
         <div class="title"></div>
-        <div class="tag"></div>
+        <div class="tag">
+            <a href=""></a>
+        </div>
     </div>
     <div class="countAndDate"></div>
     <div class="content"></div>
@@ -37,7 +39,9 @@
             const html = marked.parse(text);
             document.title=metadata.title+" moeday's blog";
             document.body.getElementsByClassName('title')[0].textContent = metadata.title;
-            document.body.getElementsByClassName('tag')[0].textContent = metadata.categories;
+            // document.body.getElementsByClassName('tag')[0].textContent = metadata.categories;
+            document.body.getElementsByClassName('tag')[0].querySelector("a").href = "../tags.html#"+metadata.categories;
+            document.body.getElementsByClassName('tag')[0].querySelector("a").textContent = metadata.categories;
             document.body.getElementsByClassName('countAndDate')[0].textContent = html.replace(/<[^>]*>/g, '').length + "字 " + metadata.date;
             document.body.getElementsByClassName('content')[0].innerHTML = html;
         });
