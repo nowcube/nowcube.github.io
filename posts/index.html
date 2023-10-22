@@ -30,7 +30,7 @@
 
 <script>
     const title = getQueryVariable("title");
-    fetch(title + ".md")
+    fetch(title)
         .then((response) => response.text())
         .then((data) => {
             const { metadata, text } = metadataParser(data);

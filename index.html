@@ -52,7 +52,7 @@
             document.getElementsByClassName("content")[0].innerHTML = cardTemplate.repeat(urls.length);
             for (i = 0; i < urls.length; i++) {
                 let p = i;
-                fetch("posts/"+urls[i]+".md")
+                fetch("posts/"+urls[i])
                     .then((response) => response.text())
                     .then((data) => {
                         const { metadata, text } = metadataParser(data);
