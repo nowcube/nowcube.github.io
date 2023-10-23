@@ -27,49 +27,63 @@
 </body>
 
 <script>
-    let cardTemplate = `
-    
-    `;
+    (async () => {
+        let linksArr = [];
+        await fetch("links.json")
+            .then((response) => response.json())
+            .then((data) => {
+                linksArr = data
+            });
+        // console.log(linksArr);
+        let tagsInfoArr = [];
+        await Promise.all(
+            linksArr.map(link => fetch("posts/" + link).then(res => res.text()).then(data => {
+                const { metadata, text } = metadataParser(data);
+                let tempObj = {};
+                tempObj.title = metadata.title;
+                tempObj.tag = metadata.categories;
+                tempObj.link = link;
+                // console.log(link)
+                tagsInfoArr.push(tempObj);
+            })));
 
-    fetch("links.json")
-        .then((response) => response.json())
-        .then((urls) => {
-            // document.getElementsByClassName("content")[0].innerHTML = cardTemplate.repeat(urls.length);
-            let tag = null;
-            let tempUrls = urls;
-            for (i = 0; i < urls.length; i++) {
-                let p = i;
-                fetch("posts/" + urls[i])
-                    .then((response) => response.text())
-                    .then((data) => {
-                        const { metadata, text } = metadataParser(data);
-                        if (metadata.categories !== tag) {
-                            let tagTitle = document.createElement("div");
-                            tagTitle.className = "tag-title";
-                            tagTitle.id=metadata.categories;
-                            tagTitle.textContent = metadata.categories;
-                            // console.log(tagTitle);
-                            document.getElementsByClassName("content")[0].appendChild(tagTitle);
-                        }
-                        let tagLink = document.createElement("div");
-                        tagLink.className = "tag-link";
-                        let tagLinkA = document.createElement("a");
-                        tagLinkA.setAttribute("href", "posts/?title=" + tempUrls[p]);
-                        tagLinkA.textContent = metadata.title;
-                        tagLink.appendChild(tagLinkA);
-                        // console.log(tagLink);
-                        document.getElementsByClassName("content")[0].appendChild(tagLink);
-                        tag = metadata.categories;
-                    });
+        //对象数组根据每个对象的link降序
+        tagsInfoArr.sort((a, b) => {
+            const linkA = a.link.toUpperCase();
+            const linkB = b.link.toUpperCase();
+            if (linkA < linkB) return 1;
+            if (linkA > linkB) return -1;
+            return 0;
+        });
+
+        let tag = "";
+        tagsInfoArr.map(item => {
+            console.log(item.title)
+            console.log(item.tag)
+            if (item.tag !== tag) {
+                let tagTitle = document.createElement("div");
+                tagTitle.className = "tag-title";
+                tagTitle.id = item.tag;
+                tagTitle.textContent = item.tag;
+                // console.log(tagTitle);
+                document.getElementsByClassName("content")[0].appendChild(tagTitle);
             }
+            let tagLink = document.createElement("div");
+            tagLink.className = "tag-link";
+            let tagLinkA = document.createElement("a");
+            tagLinkA.setAttribute("href", "posts/?title=" + item.link);
+            tagLinkA.textContent = item.title;
+            tagLink.appendChild(tagLinkA);
+            // console.log(tagLink);
+            document.getElementsByClassName("content")[0].appendChild(tagLink);
+            tag = item.tag;
         })
+    }
+    )();
 
-    // 定义一个元数据解析器
     function metadataParser(text) {
-        // 用正则表达式匹配元数据
         const regex = /^---\n([\s\S]*?)\n---\n/;
         const match = regex.exec(text);
-        // 如果有元数据，返回一个对象，包含元数据和剩余的文本
         if (match) {
             const metadata = {};
             const lines = match[1].split('\n');
@@ -82,12 +96,10 @@
                 text: text.slice(match[0].length),
             };
         }
-        // 如果没有元数据，返回原始文本
         return {
             text: text,
         };
     };
-
 </script>
 <script>
     //navbar

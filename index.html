@@ -64,19 +64,15 @@
                         document.getElementsByClassName("tag")[p].querySelector("a").textContent = metadata.categories;
                         document.getElementsByClassName("tag")[p].querySelector("a").href = "./tags.html#"+metadata.categories;
                         document.getElementsByClassName("date")[p].textContent = metadata.date;
-
                         document.getElementsByClassName("summary")[p].querySelector("a").textContent = pureText.substring(0, 80).concat(' ...');
                         document.getElementsByClassName("count")[p].textContent = pureText.length + "字"
                     });
             }
         })
 
-    // 定义一个元数据解析器
     function metadataParser(text) {
-        // 用正则表达式匹配元数据
         const regex = /^---\n([\s\S]*?)\n---\n/;
         const match = regex.exec(text);
-        // 如果有元数据，返回一个对象，包含元数据和剩余的文本
         if (match) {
             const metadata = {};
             const lines = match[1].split('\n');
@@ -89,7 +85,6 @@
                 text: text.slice(match[0].length),
             };
         }
-        // 如果没有元数据，返回原始文本
         return {
             text: text,
         };
