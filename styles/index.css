@@ -4,22 +4,9 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: "LXGWWenKaiLite";
-    src: url("../fonts/LXGWWenKaiLite-Regular.ttf");
-}
-
-
 body {
-    font-family: 'LXGWWenKaiLite';
-    /* background: url(../pics/bg.jpg);
-    background-repeat: repeat, repeat;
-    background-attachment: scroll, scroll;
-    background-size: auto, auto;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; */
     background-color: #f9f9fb;
+    font-family: "LXGW WenKai Lite", sans-serif;
 }
 
 a {
@@ -31,12 +18,8 @@ a {
     width: 100%;
     top: 0;
     padding: 0 20vw;
-    /* z-index: 1; */
     display: flex;
     border-bottom: 1px solid #DDD;
-    /* background-color: #f9f9fb; */
-    /* backdrop-filter: saturate(180%) blur(20px); */
-    /* background: rgba(255, 255, 255, 0.85); */
     backdrop-filter: blur(12px);
     background-color: rgba(255, 255, 255, 0.85);
 }
@@ -170,7 +153,6 @@ a {
     .slogan {
         font-size: 16px;
         padding: 0 20px;
-        /* height: 150px; */
     }
 
     .title {
