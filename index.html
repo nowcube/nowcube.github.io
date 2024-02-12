@@ -7,7 +7,7 @@
     <meta name="description" content="moeday's blog，记录生活与感悟" />
     <title>moeday's blog</title>
     <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.7.0/style.min.css">
 </head>
 
 <body>
@@ -25,80 +25,6 @@
         <img src="./pics/comic_0030.webp" alt="空无一人的世界" style="width: 250px;height: 185px;">
     </div>
     <div class="content"></div>
+    <script type="module" src="./script/index.js"></script>
 </body>
-
-<script>
-    let cardTemplate = `
-    <div class="card">
-        <div class="title">
-            <a href=""></a>
-        </div>
-        <div class="summary">
-            <a href=""></a>
-        </div>
-        <div class="info">
-            <div class="tag">
-                <a href="#"></a>
-            </div>
-            <div class="countAndDate">
-                <div class="count"></div>
-                <div class="date"></div>
-            </div>
-        </div>
-    </div>
-    `;
-
-    fetch("links.json")
-        .then((response) => response.json())
-        .then((urls) => {
-            document.getElementsByClassName("content")[0].innerHTML = cardTemplate.repeat(urls.length);
-            for (i = 0; i < urls.length; i++) {
-                let p = i;
-                fetch("posts/"+urls[i])
-                    .then((response) => response.text())
-                    .then((data) => {
-                        const { metadata, text } = metadataParser(data);
-                        const pureText = marked.parse(text).replace(/<[^>]*>/g, '');
-                        document.getElementsByClassName("title")[p].querySelector("a").textContent = metadata.title;
-                        document.getElementsByClassName("title")[p].querySelector("a").href = "/posts/" + "?title=" + urls[p];
-                        document.getElementsByClassName("summary")[p].querySelector("a").textContent = metadata.url;
-                        document.getElementsByClassName("summary")[p].querySelector("a").href = "/posts/" + "?title=" + urls[p];
-                        document.getElementsByClassName("tag")[p].querySelector("a").textContent = metadata.categories;
-                        document.getElementsByClassName("tag")[p].querySelector("a").href = "./tags.html#"+metadata.categories;
-                        document.getElementsByClassName("date")[p].textContent = metadata.date;
-                        document.getElementsByClassName("summary")[p].querySelector("a").textContent = pureText.substring(0, 80).concat(' ...');
-                        document.getElementsByClassName("count")[p].textContent = pureText.length + "字"
-                    });
-            }
-        })
-
-    function metadataParser(text) {
-        const regex = /^---\n([\s\S]*?)\n---\n/;
-        const match = regex.exec(text);
-        if (match) {
-            const metadata = {};
-            const lines = match[1].split('\n');
-            for (const line of lines) {
-                const [key, value] = line.split(':');
-                metadata[key.trim()] = value.trim();
-            }
-            return {
-                metadata: metadata,
-                text: text.slice(match[0].length),
-            };
-        }
-        return {
-            text: text,
-        };
-    };
-
-</script>
-<script>
-    //navbar
-    document.querySelector("#navMenu").addEventListener("click", () => {
-        document.getElementsByClassName('navLinkGroup')[0].classList.toggle("active");
-    });
-</script>
-<script src="./marked.min.js"></script>
-
 </html>

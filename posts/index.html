@@ -8,7 +8,7 @@
     <title>加载喵</title>
     <link rel="stylesheet" href="../styles/article.css">
     <link rel="stylesheet" href="../styles/markdown.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.7.0/style.min.css">
 </head>
 
 <body>
@@ -30,67 +30,6 @@
     </div>
     <div class="countAndDate"></div>
     <div class="content"></div>
+    <script type="module" src="./script/index.js"></script>
 </body>
-
-<script>
-    const title = getQueryVariable("title");
-    fetch(title)
-        .then((response) => response.text())
-        .then((data) => {
-            const { metadata, text } = metadataParser(data);
-            const html = marked.parse(text);
-            document.title=metadata.title+" moeday's blog";
-            document.body.getElementsByClassName('title')[0].textContent = metadata.title;
-            // document.body.getElementsByClassName('tag')[0].textContent = metadata.categories;
-            document.body.getElementsByClassName('tag')[0].querySelector("a").href = "../tags.html#"+metadata.categories;
-            document.body.getElementsByClassName('tag')[0].querySelector("a").textContent = metadata.categories;
-            document.body.getElementsByClassName('countAndDate')[0].textContent = html.replace(/<[^>]*>/g, '').length + "字 " + metadata.date;
-            document.body.getElementsByClassName('content')[0].innerHTML = html;
-        });
-
-    function getQueryVariable(variable) {
-        //查询路径,如?title=2022-10-12-junior,("title")即可获取2022-10-12-junior
-        const query = window.location.search.substring(1);
-        const vars = query.split("&");
-        for (let i = 0; i < vars.length; i++) {
-            let pair = vars[i].split("=");
-            if (pair[0] == variable) {
-                return pair[1];
-            }
-        }
-        return false;
-    }
-
-    // 定义一个元数据解析器
-    function metadataParser(text) {
-        // 用正则表达式匹配元数据
-        const regex = /^---\n([\s\S]*?)\n---\n/;
-        const match = regex.exec(text);
-        // 如果有元数据，返回一个对象，包含元数据和剩余的文本
-        if (match) {
-            const metadata = {};
-            const lines = match[1].split('\n');
-            for (const line of lines) {
-                const [key, value] = line.split(':');
-                metadata[key.trim()] = value.trim();
-            }
-            return {
-                metadata: metadata,
-                text: text.slice(match[0].length),
-            };
-        }
-        // 如果没有元数据，返回原始文本
-        return {
-            text: text,
-        };
-    };
-</script>
-<script>
-    //navbar
-    document.querySelector("#navMenu").addEventListener("click", () => {
-        document.getElementsByClassName('navLinkGroup')[0].classList.toggle("active");
-    });
-</script>
-<script src="../marked.min.js"></script>
-
 </html>

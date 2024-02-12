@@ -74,7 +74,7 @@ table {
     margin: 20px 0;
 }
 
-thead {
+/* thead {
     background-color: #dfe2e5;
 }
 
@@ -84,7 +84,7 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
     background-color: #dfe2e5;
-}
+} */
 
 blockquote {
     border-left: 4px solid #dfe2e5;
@@ -102,7 +102,7 @@ img {
 
 p {
     margin: 23px 0;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5;
     color: #333;
 }
@@ -118,6 +118,7 @@ ul {
 
 h1,h2,h3{
     color: #333;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 576px) {

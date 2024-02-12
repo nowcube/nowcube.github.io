@@ -7,7 +7,7 @@
     <meta name="description" content="moeday's blog，记录生活与感悟" />
     <title>tags - moeday's blog</title>
     <link rel="stylesheet" href="./styles/tags.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.7.0/style.min.css">
 </head>
 
 <body>
@@ -26,89 +26,6 @@
     </div>
     <div class="content">
     </div>
+    <script type="module" src="./script/tags.js"></script>
 </body>
-
-<script>
-    (async () => {
-        let linksArr = [];
-        await fetch("links.json")
-            .then((response) => response.json())
-            .then((data) => {
-                linksArr = data
-            });
-        // console.log(linksArr);
-        let tagsInfoArr = [];
-        await Promise.all(
-            linksArr.map(link => fetch("posts/" + link).then(res => res.text()).then(data => {
-                const { metadata, text } = metadataParser(data);
-                let tempObj = {};
-                tempObj.title = metadata.title;
-                tempObj.tag = metadata.categories;
-                tempObj.link = link;
-                // console.log(link)
-                tagsInfoArr.push(tempObj);
-            })));
-
-        //对象数组根据每个对象的link降序
-        tagsInfoArr.sort((a, b) => {
-            const linkA = a.link.toUpperCase();
-            const linkB = b.link.toUpperCase();
-            if (linkA < linkB) return 1;
-            if (linkA > linkB) return -1;
-            return 0;
-        });
-
-        let tag = "";
-        tagsInfoArr.map(item => {
-            console.log(item.title)
-            console.log(item.tag)
-            if (item.tag !== tag) {
-                let tagTitle = document.createElement("div");
-                tagTitle.className = "tag-title";
-                tagTitle.id = item.tag;
-                tagTitle.textContent = item.tag;
-                // console.log(tagTitle);
-                document.getElementsByClassName("content")[0].appendChild(tagTitle);
-            }
-            let tagLink = document.createElement("div");
-            tagLink.className = "tag-link";
-            let tagLinkA = document.createElement("a");
-            tagLinkA.setAttribute("href", "posts/?title=" + item.link);
-            tagLinkA.textContent = item.title;
-            tagLink.appendChild(tagLinkA);
-            // console.log(tagLink);
-            document.getElementsByClassName("content")[0].appendChild(tagLink);
-            tag = item.tag;
-        })
-    }
-    )();
-
-    function metadataParser(text) {
-        const regex = /^---\n([\s\S]*?)\n---\n/;
-        const match = regex.exec(text);
-        if (match) {
-            const metadata = {};
-            const lines = match[1].split('\n');
-            for (const line of lines) {
-                const [key, value] = line.split(':');
-                metadata[key.trim()] = value.trim();
-            }
-            return {
-                metadata: metadata,
-                text: text.slice(match[0].length),
-            };
-        }
-        return {
-            text: text,
-        };
-    };
-</script>
-<script>
-    //navbar
-    document.querySelector("#navMenu").addEventListener("click", () => {
-        document.getElementsByClassName('navLinkGroup')[0].classList.toggle("active");
-    });
-</script>
-<script src="./marked.min.js"></script>
-
 </html>
