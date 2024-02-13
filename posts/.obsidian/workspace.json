@@ -13,9 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2021-11-14-create-blog.md",
+                "file": "😋.md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "50e86162e8298ed6",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "pics/雨下少女/IMG_20230504_183149_lmc_8.4.jpg"
               }
             }
           }
@@ -85,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2021-11-14-create-blog.md",
+                "file": "😋.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2021-11-14-create-blog.md",
+                "file": "😋.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2021-11-14-create-blog.md"
+                "file": "😋.md"
               }
             }
           }
@@ -133,7 +143,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -148,15 +158,19 @@
   },
   "active": "1285b09da0166a46",
   "lastOpenFiles": [
+    "尝试ArchLinux.md",
+    "博客搭建.md",
+    "😋.md",
+    "高中同学吃饭记.md",
+    "雨下少女.md",
+    "pics/雨下少女/IMG_20230504_183149_lmc_8.4.jpg",
+    "private/大三了.md",
+    "private/pics",
+    "private/pics/大三了/QQ图片20221012003256.jpg",
+    "private",
     "Pasted image 20240213002003.png",
-    "2021-11-14-create-blog.md",
-    "2022-02-19-high-school-classmates-dinner.md",
-    "2022-07-07-from-win11-to-arch.md",
-    "2022-10-12-junior.md",
-    "2023-10-21-cute-coser-and-me.md",
-    "2023-10-24-rain-girl.md",
     "未命.md",
-    "pics/junior/QQ图片20221012003808.png",
-    "pics/junior/QQ图片20221012003808 - 副本.jpg"
+    "private/pics/大三了/QQ图片20221012003808.png",
+    "private/pics/大三了/QQ图片20221012003808 - 副本.jpg"
   ]
 }

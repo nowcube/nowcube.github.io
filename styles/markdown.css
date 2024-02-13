@@ -74,6 +74,13 @@ table {
     margin: 20px 0;
 }
 
+
+table,
+th,
+td {
+    border: 1px solid #bababa;
+}
+
 /* thead {
     background-color: #dfe2e5;
 }
@@ -116,16 +123,21 @@ ul {
     padding: 0 0 0 1rem;
 }
 
-h1,h2,h3{
+h1,
+h2,
+h3 {
     color: #333;
     font-weight: bold;
 }
 
 @media screen and (max-width: 576px) {
-   p {
+    p {
         font-size: 16px;
     }
-    h1,h2,h3{
+
+    h1,
+    h2,
+    h3 {
         font-size: 0.95rem;
     }
 }

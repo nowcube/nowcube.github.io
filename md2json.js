@@ -1,11 +1,25 @@
 const fs = require('fs');
+const path = require('path')
+const matter = require('gray-matter');
 let arr = [];
-fs.readdirSync("./posts/").sort().reverse()
+let links = []
+
+fs.readdirSync("posts/")
 	.forEach((i) => {
 		if (i.substring(i.lastIndexOf('.')) == ".md") {
-			// console.log(i)
-			arr.push(i)
+			const data = fs.readFileSync(path.join(__dirname, "/posts/" + i), 'utf-8')
+			arr.push(matter(data).data)
 		}
 	})
-// console.log(arr)
-fs.writeFileSync('links.json',JSON.stringify(arr))
+
+function compareDate(a, b) {
+	return new Date(b.date) - new Date(a.date);
+}
+arr.sort(compareDate);
+
+for (i in arr) {
+	links.push(arr[i].title + ".md")
+}
+
+console.log(links)
+fs.writeFileSync('links.json', JSON.stringify(links))
