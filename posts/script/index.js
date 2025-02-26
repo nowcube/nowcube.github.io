@@ -19,8 +19,14 @@ async function main() {
     document.body.getElementsByClassName('title')[0].textContent = metadata.title;
     document.body.getElementsByClassName('tag')[0].querySelector("a").href = "../tags.html#" + metadata.categories;
     document.body.getElementsByClassName('tag')[0].querySelector("a").textContent = metadata.categories;
-    document.body.getElementsByClassName('countAndDate')[0].textContent =pure_text.length + "字 " + metadata.date.toLocaleDateString();
-    document.body.getElementsByClassName('content')[0].innerHTML = md_content;}
+    document.body.getElementsByClassName('countAndDate')[0].textContent = pure_text.length + "字 " + metadata.date.toLocaleDateString();
+    document.body.getElementsByClassName('content')[0].innerHTML = md_content;
+}
+
+function getTitle(){
+    console.log(window.location.href)
+    return window.location.href
+}
 
 function getQueryVariable(variable) {
     //查询路径,如?title=2022-10-12-junior,("title")即可获取2022-10-12-junior

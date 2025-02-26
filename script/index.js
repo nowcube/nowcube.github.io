@@ -46,7 +46,7 @@ async function main() {
         const count = pure_text.length+ "字"
         const summary = pure_text.substring(0, 80).concat(' ...')
 
-        const title_href="/posts/" + "?title=" + urls[url]
+        const title_href="/posts/" + "?title=" + urls[url] 
         const summary_href=title_href
         const tag_herf="./tags.html#" + tag;
 
