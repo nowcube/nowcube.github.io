@@ -38,9 +38,10 @@ a {
 
 .navLink {
     font-size: 20px;
-    color: #333;
+    color: #272727;
     line-height: 20px;
     padding: 20px;
+    font-weight: bold;
 }
 
 .slogan {

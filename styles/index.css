@@ -5,8 +5,13 @@
 }
 
 body {
-    background-color: #f9f9fb;
+    /* background-color: #f9f9fb; */
+    /* background-image: linear-gradient(120deg, #fff38c 0%, #ffcef1 100%); */
+    background-image: url("../pics/bg2.png");
     font-family: "LXGW WenKai Lite", sans-serif;
+    background-size: cover; /* 确保图片覆盖整个元素 */
+    background-position: center; /* 将图片居中显示 */
+    min-height: 100vh; /* 确保至少为视口高度 */
 }
 
 a {
@@ -22,6 +27,7 @@ a {
     border-bottom: 1px solid #DDD;
     backdrop-filter: blur(12px);
     background-color: rgba(255, 255, 255, 0.85);
+    z-index: 100;
 }
 
 .navMenu {
@@ -38,9 +44,10 @@ a {
 
 .navLink {
     font-size: 20px;
-    color: #333;
+    color: #272727;
     line-height: 20px;
     padding: 20px;
+    font-weight: bold;
 }
 
 .slogan {
@@ -60,7 +67,11 @@ a {
 
 .card {
     padding: 20px;
-    border-bottom: 1px solid #DDD;
+    /* border-bottom: 1px solid #DDD; */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .title {
@@ -92,7 +103,8 @@ a {
 
 .tag {
     font-size: 14px;
-    background-color: #A4A7B6;
+    /* background-color: #A4A7B6; */
+    background-color: #FF66BB;
     padding: 0 10px;
     border-radius: 5px;
 }
@@ -125,6 +137,12 @@ a {
 @media (max-width: 500px) {
     .content {
         margin: 0;
+    }
+
+    .card{
+        margin-bottom: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #DDD;
     }
 
     .navbar {
